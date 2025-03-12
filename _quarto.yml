@@ -9,13 +9,13 @@ website:
       - text: "Home"
         href: index.html
       - text: "About"
-        href: about.html   # Link to about page, this should not be in posts folder.
+        href: about.html
   sidebar:
     style: "docked"
     contents:
       - section: "Posts"
         contents:
-          - posts/*  # Automatically include all .qmd files in the posts folder in the sidebar
+          - posts/*  # Automatically include all .qmd files in the posts folder in the sidebar.
           
 format:
   html:
