@@ -10,6 +10,8 @@ website:
         href: index.html
       - text: "About"
         href: about.html
+      - text: "Manual"
+        href: manual/index.html
   sidebar:
     style: "docked"
     contents:
