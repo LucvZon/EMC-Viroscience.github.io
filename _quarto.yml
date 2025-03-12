@@ -1,8 +1,14 @@
 project:
   type: website
   output-dir: docs
+
 website:
-  title: "EMC Viroscience Homepage"
+  title: "EMC Viroscience Homepage" # Changed title here
+  navbar:
+    left:
+      - text: "Home"
+        href: index.html
+
 format:
   html:
-    theme: cosmo
+    theme: jekyll-theme-minimal # You can choose a different theme if you want
