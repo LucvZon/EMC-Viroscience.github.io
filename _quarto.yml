@@ -9,7 +9,7 @@ website:
       - text: "Home"
         href: index.html
       - text: "About"
-        href: posts/about.html   # Link to about page, this should not be in posts folder.
+        href: about.html   # Link to about page, this should not be in posts folder.
   sidebar:
     style: "docked"
     contents:

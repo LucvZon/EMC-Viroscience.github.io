@@ -2,36 +2,36 @@
   {
     "objectID": "posts/my-first-post.html",
     "href": "posts/my-first-post.html",
-    "title": "My First Blog Post",
+    "title": "Example Blog Post",
     "section": "",
-    "text": "This is the content of my first blog post! I can use Markdown here, like bold text or italics."
+    "text": "This is the content of an example blog post! I can use Markdown here, like bold text or italics."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "EMC Viroscience",
+    "section": "",
+    "text": "This Quarto website is hosted with GitHub Pages. Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "about.html#quarto",
+    "href": "about.html#quarto",
+    "title": "EMC Viroscience",
+    "section": "",
+    "text": "This Quarto website is hosted with GitHub Pages. Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "about.html#adding-blogs",
+    "href": "about.html#adding-blogs",
+    "title": "EMC Viroscience",
+    "section": "Adding blogs",
+    "text": "Adding blogs\nTo add blogs to this Quarto website, just place your html files within the docs/ folder. I need to test this."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome to the EMC Viroscience site!",
     "section": "",
-    "text": "This webpage hosts manuals for various bioinformatic workflows. Here are some recent posts:\n\nIllumina metagenomic pipeline\nNanopore metagenomic pipeline\nNanopore amplicon based pipeline\n\nYou can also explore more posts in the sidebar.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy First Blog Post\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2025\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/about.html",
-    "href": "posts/about.html",
-    "title": "EMC Viroscience",
-    "section": "",
-    "text": "This Quarto website is hosted with GitHub Pages. Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "posts/about.html#quarto",
-    "href": "posts/about.html#quarto",
-    "title": "EMC Viroscience",
-    "section": "",
-    "text": "This Quarto website is hosted with GitHub Pages. Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "posts/about.html#adding-blogs",
-    "href": "posts/about.html#adding-blogs",
-    "title": "EMC Viroscience",
-    "section": "Adding blogs",
-    "text": "Adding blogs\nTo add blogs to this Quarto website, just place your html files within the docs/ folder. I need to test this."
+    "text": "This webpage hosts manuals for various bioinformatic workflows. Here are some recent posts:\n\nIllumina metagenomic pipeline\nNanopore metagenomic pipeline\nNanopore amplicon based pipeline\n\nYou can also explore more posts in the sidebar.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample Blog Post\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2025\n\n\nLuc van Zon\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2025\n\n\n\n\n\n\nNo matching items"
   }
 ]
