@@ -1,8 +1,8 @@
 ---
-title: "Welcome to My Blog!"
+title: "Welcome to the frontpage for Viroscience manuals!"
 ---
 
-This is the homepage of my blog.  Here are some recent posts:
+This webpage hosts manuals for various bioinformatic workflows.  Here are some recent posts:
 
 - [Illumina metagenomic pipeline](posts/my-first-post.html)
 - [Nanopore metagenomic pipeline](posts/my-second-post.html)
