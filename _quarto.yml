@@ -9,7 +9,7 @@ website:
       - text: "Home"
         href: index.html
       - text: "About"
-        href: posts/about.qmd   # Link to about page
+        href: posts/about.html   # Link to about page
   sidebar:
     style: "docked"
     contents:
