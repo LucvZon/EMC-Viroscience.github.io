@@ -15,7 +15,7 @@ website:
     contents:
       - section: "Posts"
         contents:
-          - posts/*  # Automatically include all .qmd files in the posts folder in the sidebar.
+          - /*.qmd
           
 format:
   html:
