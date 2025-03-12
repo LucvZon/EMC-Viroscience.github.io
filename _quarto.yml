@@ -19,4 +19,6 @@ website:
           
 format:
   html:
-    theme: jekyll-theme-minimal # You can choose a different theme if you want
+    theme:
+      light: jekyll-theme-minimal
+      dark: darkly
