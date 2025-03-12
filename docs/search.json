@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "posts/my-first-post.html",
+    "href": "posts/my-first-post.html",
+    "title": "My First Blog Post",
+    "section": "",
+    "text": "This is the content of my first blog post! I can use Markdown here, like bold text or italics."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to My Blog!",
+    "section": "",
+    "text": "This is the homepage of my blog. Here are some recent posts:\n\nMy First Post\nMy Second Post\n\nYou can also explore more posts in the sidebar."
+  }
+]
