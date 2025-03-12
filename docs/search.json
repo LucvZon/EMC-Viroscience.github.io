@@ -4,7 +4,12 @@
     "href": "posts/my-second-post.html",
     "title": "Example Post 2",
     "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet nulla eget purus finibus, quis tempor justo iaculis. Integer at enim suscipit, porttitor nunc eget, porta urna. Sed sit amet dui blandit, ornare mi id, vehicula est. Fusce dignissim neque sed lacus elementum venenatis."
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet nulla eget purus finibus, quis tempor justo iaculis. Integer at enim suscipit, porttitor nunc eget, porta urna. Sed sit amet dui blandit, ornare mi id, vehicula est. Fusce dignissim neque sed lacus elementum venenatis.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Example Post 2"
+    ]
   },
   {
     "objectID": "index.html",
@@ -39,6 +44,11 @@
     "href": "posts/my-first-post.html",
     "title": "Example Blog Post",
     "section": "",
-    "text": "This is the content of an example blog post! I can use Markdown here, like bold text or italics."
+    "text": "This is the content of an example blog post! I can use Markdown here, like bold text or italics.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Example Blog Post"
+    ]
   }
 ]
