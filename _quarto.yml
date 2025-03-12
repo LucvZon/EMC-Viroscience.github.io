@@ -8,7 +8,15 @@ website:
     left:
       - text: "Home"
         href: index.html
-
+      - text: "About"
+        href: posts/about.qmd   # Link to about page
+  sidebar:
+    style: "docked"
+    contents:
+      - section: "Posts"
+        contents:
+          - posts/*.qmd  # Automatically include all .qmd files in the posts folder in the sidebar
+          
 format:
   html:
     theme: jekyll-theme-minimal # You can choose a different theme if you want
