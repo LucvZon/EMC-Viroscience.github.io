@@ -1,0 +1,10 @@
+---
+title: "Welcome to My Blog!"
+---
+
+This is the homepage of my blog.  Here are some recent posts:
+
+- [My First Post](posts/my-first-post.html)
+- [My Second Post](posts/my-second-post.html)
+
+You can also explore more posts in the sidebar.
