@@ -11,6 +11,27 @@
     "href": "index.html",
     "title": "Welcome to My Blog!",
     "section": "",
-    "text": "This is the homepage of my blog. Here are some recent posts:\n\nMy First Post\nMy Second Post\n\nYou can also explore more posts in the sidebar."
+    "text": "This is the homepage of my blog. Here are some recent posts:\n\nIllumina metagenomic pipeline\nNanopore metagenomic pipeline\n[Nanopore amplicon based pipeline]\n\nYou can also explore more posts in the sidebar."
+  },
+  {
+    "objectID": "posts/about.html",
+    "href": "posts/about.html",
+    "title": "about.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "posts/about.html#quarto",
+    "href": "posts/about.html#quarto",
+    "title": "about.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "posts/about.html#running-code",
+    "href": "posts/about.html#running-code",
+    "title": "about.qmd",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
   }
 ]
