@@ -1,11 +1,11 @@
 ---
-title: "Welcome to the frontpage for Viroscience manuals!"
+title: "Welcome to the EMC Viroscience site!"
 ---
 
 This webpage hosts manuals for various bioinformatic workflows.  Here are some recent posts:
 
 - [Illumina metagenomic pipeline](posts/my-first-post.html)
 - [Nanopore metagenomic pipeline](posts/my-second-post.html)
-- [Nanopore amplicon based pipeline]
+- [Nanopore amplicon based pipeline](posts/fake-link.html)
 
 You can also explore more posts in the sidebar.
