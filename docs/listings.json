@@ -3,7 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/my-first-post.html",
-      "/about.html"
+      "/posts/my-second-post.html"
     ]
   }
 ]

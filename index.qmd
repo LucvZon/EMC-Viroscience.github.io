@@ -1,12 +1,11 @@
 ---
 title: "Welcome to the EMC Viroscience site!"
-listing: default
+listing:
+  contents: posts
+  feed:
+    items: 10
 ---
 
-This webpage hosts manuals for various bioinformatic workflows. Here are some recent posts:
+This webpage hosts manuals for various bioinformatic workflows. You can explore all posts in the sidebar.
 
--   [Illumina metagenomic pipeline](posts/my-first-post.html)
--   [Nanopore metagenomic pipeline](posts/my-second-post.html)
--   [Nanopore amplicon based pipeline](posts/fake-link.html)
-
-You can also explore more posts in the sidebar.
+Here are some recent posts:
