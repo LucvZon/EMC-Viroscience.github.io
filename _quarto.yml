@@ -1,0 +1,8 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "EMC Viroscience Homepage"
+format:
+  html:
+    theme: cosmo
