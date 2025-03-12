@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Taxonomic classification – Illumina metagenomic data analysis</title>
+<title>2&nbsp; Quality control – Illumina metagenomic data analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./parse_annotation.html" rel="next">
-<link href="./assembly.html" rel="prev">
+<link href="./assembly.html" rel="next">
+<link href="./preparation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./annotation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taxonomic classification</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quality_control.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quality control</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quality_control.html" class="sidebar-item-text sidebar-link">
+  <a href="./quality_control.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quality control</span></span></a>
   </div>
 </li>
@@ -171,14 +171,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./annotation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./annotation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taxonomic classification</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./parse_annotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extracting Viral Sequences and Analyzing Mapped Reads</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Final steps (think of name)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,9 +197,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#diamond" id="toc-diamond" class="nav-link active" data-scroll-target="#diamond"><span class="header-section-number">4.1</span> Diamond</a></li>
-  <li><a href="#split-annotation-files" id="toc-split-annotation-files" class="nav-link" data-scroll-target="#split-annotation-files"><span class="header-section-number">4.2</span> Split annotation files</a></li>
-  <li><a href="#parsing-diamond-output" id="toc-parsing-diamond-output" class="nav-link" data-scroll-target="#parsing-diamond-output"><span class="header-section-number">4.3</span> Parsing diamond output</a></li>
+  <li><a href="#decompressing-fastq" id="toc-decompressing-fastq" class="nav-link active" data-scroll-target="#decompressing-fastq"><span class="header-section-number">2.1</span> Decompressing FASTQ</a></li>
+  <li><a href="#deduplicate-reads" id="toc-deduplicate-reads" class="nav-link" data-scroll-target="#deduplicate-reads"><span class="header-section-number">2.2</span> Deduplicate reads</a></li>
+  <li><a href="#running-fastp-quality-control-software" id="toc-running-fastp-quality-control-software" class="nav-link" data-scroll-target="#running-fastp-quality-control-software"><span class="header-section-number">2.3</span> Running fastp quality control software</a></li>
+  <li><a href="#host-filtering" id="toc-host-filtering" class="nav-link" data-scroll-target="#host-filtering"><span class="header-section-number">2.4</span> Host filtering</a></li>
   </ul>
 </nav>
     </div>
@@ -208,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taxonomic classification</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quality control</span></h1>
 </div>
 
 
@@ -225,73 +226,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="diamond" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="diamond"><span class="header-section-number">4.1</span> Diamond</h2>
-<p>Now we will annotate the aggregated contigs by assigning taxonomic classifications to them based on sequence similarity to known proteins in a database using <a href="https://github.com/bbuchfink/diamond">diamond blastx</a>.</p>
-<p>The <code>-f 6</code> parameter will ensure the output is in a tabular format. The <code>6</code> may be followed by a space-separated list of various keywords, each specifying a field of the output. For a full description of the output, please visit <a href="https://www.metagenomics.wiki/tools/blast/blastn-output-format-6">here</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond</span> blastx <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>-q {input} <span class="dt">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>-d {db} <span class="dt">\</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>-o {output} <span class="dt">\</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>-f 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids <span class="dt">\</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>--taxonmap {tx} <span class="dt">\</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>--threads {threads} <span class="dt">\</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>-b 10 <span class="at">-c</span> 1 <span class="op">&gt;</span> {log} <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>{input}</code> is the contig file created in either <strong>step 3.3</strong> or <strong>step 3.1</strong>, depending on your amount of samples.</li>
-<li><code>{db}</code> is the protein database to be searched against.</li>
-<li><code>{output}</code> is a .tsv file containing the annotation results.</li>
-<li><code>{tx}</code> is a mapping file to convert protein accessions to taxonomic IDs.</li>
-<li><code>{log}</code> is the log directory.</li>
-</ul>
-<p>Multiple different databases and taxomaps can be found in: <code>\\cifs.research.erasmusmc.nl\viro0002\workgroups_projects\Bioinformatics\DB</code></p>
-</section>
-<section id="split-annotation-files" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="split-annotation-files"><span class="header-section-number">4.2</span> Split annotation files</h2>
-<p>We will split the combined annotation file back into individual annotation files for each sample. This step can be seen as optional if you are dealing with a single sample.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the next steps we are going to copy-paste code, adjust it to our needs, and execute it on the command-line.</p>
+<p><strong>Please open a plain text editor to paste the code from the next steps, to keep track of your progress!</strong></p>
+</div>
+</div>
+<p>For simplicity’s sake, we will go through the steps for an individual sample. It is recommended to follow a basic file structure like the following below:</p>
+<pre><code>my_project/
+├── raw_data/          # Contains the raw, gzipped FASTQ files
+│   ├── sample1_R1_001.fastq.gz
+│   ├── sample1_R2_001.fastq.gz
+│   ├── sample2_R1_001.fastq.gz
+│   └── sample2_R2_001.fastq.gz
+└── results/           # This is where the output files will be stored
+└── log/               # This is where log files will be stored</code></pre>
+<section id="decompressing-fastq" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="decompressing-fastq"><span class="header-section-number">2.1</span> Decompressing FASTQ</h2>
+<p>The first step is to decompress the raw FASTQ files. FASTQ files are often compressed using gzip to save disk space. We’ll use the zcat command to decompress them.</p>
 <p><strong>Modify and run:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> tmp_split</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">'s/_NODE/|NODE/'</span> {input} <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">'|'</span> <span class="st">'{</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">    identifier = $1;  # Construct the identifier using the first two fields</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">    output_file = "tmp_split/" identifier;  # Construct the output filename</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">    if (!seen[identifier]++) {</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">        close(output_file);  # Close the previous file (if any)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">        output = output_file;  # Update the current output file</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">    print $2 &gt; output;  # Append the line to the appropriate output file</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> file <span class="kw">in</span> tmp_split/<span class="pp">*</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mkdir</span> <span class="at">-p</span> {output}/<span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$file</span><span class="st">"</span><span class="va">)</span>/<span class="kw">;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mv</span> <span class="st">"</span><span class="va">$file</span><span class="st">"</span> {output}/<span class="va">$(</span><span class="fu">basename</span> <span class="st">"</span><span class="va">$file</span><span class="st">"</span><span class="va">)</span>/diamond_output.tsv<span class="kw">;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> tmp_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> {input.folder}/{sample}_R1_001.fastq.gz <span class="op">&gt;</span> {output.folder}/{sample}_R1.fastq</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> {input.folder}/{sample}_R2_001.fastq.gz <span class="op">&gt;</span> {output.folder}/{sample}_R2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><code>{input}</code> is the combined annotation file from <strong>step 4.1</strong>.</li>
-<li><code>{output}</code> is a directory path. This directory will be automatically filled with subdirectories for each sample. In each subdirectory you will find a diamond_out.tsv file.</li>
+<li><code>{input.folder}</code> is where your raw .fastq.gz data is stored.</li>
+<li><code>{sample}</code> is the name of your sample.</li>
+<li><code>{output.folder}</code> is where your decompressed .fastq files will be stored.</li>
 </ul>
 </section>
-<section id="parsing-diamond-output" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="parsing-diamond-output"><span class="header-section-number">4.3</span> Parsing diamond output</h2>
-<p>Now we will process the DIAMOND output files with a custom Python script called <strong>post_process_diamond.py</strong>. This script will further enrich taxonomic information for each contig based on the DIAMOND alignment results. If a contig has multiple matches in the database, it will select the best hit based on a combined score of bitscore and length. Lastly, it separates the contigs into two lists: those that were successfully annotated and unannotated.</p>
-<p>This python script utilizes the <a href="https://biopython.org/">biopython library</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> /mnt/viro0002/workgroups_projects/Bioinformatics/scripts/post_process_diamond.py <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>-i {input.annotation} <span class="dt">\</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>-c {input.contigs} <span class="dt">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>-o {output.annotated} <span class="dt">\</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>-u {output.unannotated} <span class="dt">\</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>-log {log}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="deduplicate-reads" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="deduplicate-reads"><span class="header-section-number">2.2</span> Deduplicate reads</h2>
+<p>This step removes duplicate reads from the uncompressed FASTQ files. Duplicate reads can arise during PCR amplification or sequencing and can skew downstream analyses. We’ll use the cd-hit-dup program to identify and remove these duplicates.</p>
+<p>After cd-hit-dup command is finished, we’ll remove the .clstr file that cd-hit-dup creates. This file contains information about the clusters of duplicate reads, but it’s not needed for downstream analysis, so we can safely remove it to save disk space.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cd-hit-dup</span> <span class="at">-u</span> 50 <span class="at">-i</span> {input.R1} <span class="at">-i2</span> {input.R2} <span class="at">-o</span> {output.R1} <span class="at">-o2</span> {output.R2} <span class="op">&gt;</span> {logs}/{sample}_cd-hit.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> {output.dir}/<span class="pp">*</span>.clstr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><code>{input.annotation}</code> is the annotation file <strong>step 4.2</strong>.</li>
-<li><code>{input.contigs}</code> are the contigs from the SPAdes <strong>step 3.1</strong>.</li>
-<li><code>{output.annotated}</code> is a .tsv file with a set of annotated contigs.</li>
-<li><code>{output.unannotated}</code> is a .tsv file with a set of unannotated contig IDs.</li>
-<li><code>{log}</code> is the log directory.</li>
+<li><code>{input.R1}</code> and <code>{input.R2}</code> are the decompressed R1 and R2 reads from <strong>step 2.1</strong>.</li>
+<li><code>{output.R1}</code> and <code>{output.R2}</code> are your deduplicated .fastq reads. Think of where you want to store your results, something like <code>results/dedup/</code> will be sufficient, so output.R1 turns into <code>result/dedup/SampleName_R1.fastq</code>, etc.</li>
+<li><code>{output.dir}</code> This should be pointed to wherever your deduplicated reads are stored.</li>
+</ul>
+</section>
+<section id="running-fastp-quality-control-software" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="running-fastp-quality-control-software"><span class="header-section-number">2.3</span> Running fastp quality control software</h2>
+<p>The <a href="https://github.com/OpenGene/fastp">fastp</a> software is a very fast multipurpose quality control software to perform quality and sequence adapter trimming for Illumina short-read and Nanopore long-read data.</p>
+<p>Because we are processing Illumina short-read data,</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>        <span class="ex">fastp</span> <span class="at">-i</span> {input.R1} <span class="at">-I</span> {input.R2} <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">-o</span> {output.R1} <span class="at">-O</span> {output.R2} <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">--unpaired1</span> {output.S} <span class="at">--unpaired2</span> {output.S} <span class="at">--failed_out</span> {output.failed} <span class="dt">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">--length_required</span> 50 <span class="dt">\</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">--low_complexity_filter</span> <span class="dt">\</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">--cut_right</span> <span class="dt">\</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">--cut_right_window_size</span> 5 <span class="dt">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">--cut_right_mean_quality</span> 25 <span class="dt">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">-j</span> result/{sample}/dedup_qc/qc_report.json <span class="at">-h</span> result/{sample}/dedup_qc/qc_report.html <span class="op">&gt;</span> {log} <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>{input.R1}</code> and <code>{input.R2}</code> are the reads belonging to the deduplicated sample <strong>step 2.2</strong>.</li>
+<li><code>{output.R1}</code> and <code>{output.R2}</code> are the the quality controlled .fastq filenames.</li>
+<li><code>{output.S}</code> –unpaired1 and –unpaired2 tells fastp to write unpaired reads to a .fastq file. In our case, we write unpaired reads (whether they originated from the R1 or R2 file) to the same file, output.S.</li>
+<li><code>{output.failed}</code> .fastq file that stores reads (either merged or unmerged) which failed the quality filters</li>
+<li><code>{sample}</code> is the name of your sample.</li>
+<li><code>{log}</code> is the directory for log files.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -303,7 +306,34 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We can now move on to the final steps where we will create various files needed for downstream analysis.</p>
+<p><code>{threads}</code> is a recurring setting for the number of CPUs to use for the processing. On a laptop this will be less (e.g.&nbsp;8), on an HPC you may be able to use 64 or more CPUs for processing. However, how much performance increase you get depends on the software.</p>
+</div>
+</div>
+</section>
+<section id="host-filtering" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="host-filtering"><span class="header-section-number">2.4</span> Host filtering</h2>
+<p>This step removes reads that map to a host genome (e.g., human). This is important if you’re studying metagenomes from a host-associated environment (e.g., gut microbiome, stool).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem <span class="at">-aY</span> <span class="at">-t</span> {threads} {params.reference} {input.R1} {input.R2} <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> fastq <span class="at">-f</span> 4 <span class="at">-s</span> /dev/null <span class="at">-1</span> {output.R1} <span class="at">-2</span> {output.R2} <span class="at">-</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem <span class="at">-aY</span> <span class="at">-t</span> {threads} {params.reference}  {input.S} <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> fastq <span class="at">-f</span> 4 <span class="at">-</span> <span class="op">&gt;</span> {output.S}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>{input.R1}</code> and <code>{input.R2}</code> are QC-filtered FASTQ files from <strong>step 2.3</strong>.</li>
+<li><code>{output.R1}</code> and <code>{output.R2}</code> are FASTQ files (R1, R2) containing reads that did not map to the host genome.</li>
+<li><code>{input.S}</code> are singleton reads from the previous step (output.S).</li>
+<li><code>{params.reference}</code> is a reference genome sequence.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We now have our quality controlled sequence reads which we can use to create an assembly in the next chapter.</p>
 </div>
 </div>
 
@@ -874,13 +904,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./assembly.html" class="pagination-link" aria-label="De novo assembly">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De novo assembly</span></span>
+      <a href="./preparation.html" class="pagination-link" aria-label="Preparation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preparation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./parse_annotation.html" class="pagination-link" aria-label="Extracting Viral Sequences and Analyzing Mapped Reads">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extracting Viral Sequences and Analyzing Mapped Reads</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./assembly.html" class="pagination-link" aria-label="De novo assembly">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De novo assembly</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

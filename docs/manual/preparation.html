@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Extracting Viral Sequences and Analyzing Mapped Reads – Illumina metagenomic data analysis</title>
+<title>1&nbsp; Preparation – Illumina metagenomic data analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./illumina_hpc.html" rel="next">
-<link href="./annotation.html" rel="prev">
+<link href="./quality_control.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./parse_annotation.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extracting Viral Sequences and Analyzing Mapped Reads</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preparation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preparation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preparation.html" class="sidebar-item-text sidebar-link">
+  <a href="./preparation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preparation</span></span></a>
   </div>
 </li>
@@ -177,8 +177,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./parse_annotation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extracting Viral Sequences and Analyzing Mapped Reads</span></span></a>
+  <a href="./parse_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Final steps (think of name)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,11 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#extract-viral-annotations" id="toc-extract-viral-annotations" class="nav-link active" data-scroll-target="#extract-viral-annotations"><span class="header-section-number">5.1</span> Extract viral annotations</a></li>
-  <li><a href="#mapping-reads-to-contigs" id="toc-mapping-reads-to-contigs" class="nav-link" data-scroll-target="#mapping-reads-to-contigs"><span class="header-section-number">5.2</span> Mapping reads to contigs</a></li>
-  <li><a href="#extract-mapped-reads" id="toc-extract-mapped-reads" class="nav-link" data-scroll-target="#extract-mapped-reads"><span class="header-section-number">5.3</span> Extract mapped reads</a></li>
-  <li><a href="#count-mapped-reads" id="toc-count-mapped-reads" class="nav-link" data-scroll-target="#count-mapped-reads"><span class="header-section-number">5.4</span> Count mapped reads</a></li>
-  <li><a href="#extract-contigs" id="toc-extract-contigs" class="nav-link" data-scroll-target="#extract-contigs"><span class="header-section-number">5.5</span> Extract contigs</a></li>
+  <li><a href="#activating-the-correct-conda-software-environment" id="toc-activating-the-correct-conda-software-environment" class="nav-link active" data-scroll-target="#activating-the-correct-conda-software-environment"><span class="header-section-number">1.1</span> Activating the correct conda software environment</a></li>
   </ul>
 </nav>
     </div>
@@ -210,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extracting Viral Sequences and Analyzing Mapped Reads</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preparation</span></h1>
 </div>
 
 
@@ -227,76 +223,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We will conclude the pipeline with various steps which will create valuable data files for further downstream analysis.</p>
-<section id="extract-viral-annotations" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="extract-viral-annotations"><span class="header-section-number">5.1</span> Extract viral annotations</h2>
-<p>A basic grep command can be used to extract contigs that have been annotated as viral from the annotation file in <strong>step 4.3</strong>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"Viruses$"</span> {input.annotated} <span class="op">&gt;</span> {output.viral} <span class="kw">||</span> <span class="fu">touch</span> {output.viral}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the following sections whenever a <strong>“parameter”</strong> in brackets <code>{}</code> is shown, the intention is to fill in your own filename or value. Each parameter will be explained in the section in detail.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice the small <em>“Copy to Clipboard”</em> button on the right hand side of each code chunk, this can be used to copy the code.</p>
+</div>
+</div>
+<section id="activating-the-correct-conda-software-environment" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="activating-the-correct-conda-software-environment"><span class="header-section-number">1.1</span> Activating the correct conda software environment</h2>
+<p><a href="www.anaconda.org">Anaconda</a> is a software management tool that can be used for creating specific environments where bioinformatics software can be installed in Linux, as it manages all the dependencies of different softwares for you. To run the steps outlined in this manual, be sure to first activate the proper conda environment.</p>
+<p>Activate a conda environment can be done by copying and executing the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate {environment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><code>{input.annotated}</code> is the annotation file from <strong>step 4.3</strong>.</li>
-<li><code>{output.viral}</code> contains all of your viral contigs.</li>
-</ul>
-</section>
-<section id="mapping-reads-to-contigs" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="mapping-reads-to-contigs"><span class="header-section-number">5.2</span> Mapping reads to contigs</h2>
-<p>We can map the quality-filtered and host-filtered reads back to the assembled contigs to quantify the abundance of different contigs in each sample. We will create a mapping file for paired reads (R1 and R2) and singletons (S) and then merge these two files together.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index {input.contigs}</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem <span class="at">-Y</span> <span class="at">-t</span> {threads} {input.contigs} {input.R1} {input.R2} <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-</span> <span class="op">&gt;</span> {output.paired}/tmp_paired.bam</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem <span class="at">-Y</span> <span class="at">-t</span> {threads} {input.contigs} {input.S} <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-</span> <span class="op">&gt;</span> {output.S}/tmp_singlets.bam</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> merge {output.merged}/contigs.bam {output.paired}/tmp_paired.bam {output.S}/tmp_singlets.bam</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> {output.paired}/tmp_paired.bam {output.S}/tmp_singlets.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>{input.contigs}</code> contains the assembled contigs from <strong>step 3.1</strong>.</li>
-<li><code>{input.R1}</code>, <code>{input.R2}</code> and <code>{input.S}</code> are the quality controlled and host-filtered reads from <strong>step 2.4</strong>.</li>
-<li><code>{output.paired}</code> is the directory for the .bam mapping file based on paired reads.</li>
-<li><code>{output.S}</code> is the directory for the .bam mapping file based on singleton reads.</li>
-<li><code>{output.merged}</code> is the directory for the merged .bam file.</li>
-</ul>
-</section>
-<section id="extract-mapped-reads" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="extract-mapped-reads"><span class="header-section-number">5.3</span> Extract mapped reads</h2>
-<p>We will extract the reads for each annotation file that we’ve created.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create temporary BED file to extract the annotated mappings from the BAM of all mappings</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-f1</span> {input.annotated} <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">'_'</span> <span class="st">'{{print $0 "\t" 0 "\t" $4}}'</span> <span class="op">&gt;</span> {output}/tmp.bed</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bL</span> {output}/tmp.bed {input.mapped} <span class="op">&gt;</span> {output.annotated}</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Do the same for the unannotated contigs</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-f1</span> {input.unannotated} <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">'_'</span> <span class="st">'{{print $0 "\t" 0 "\t" $4}}'</span> <span class="op">&gt;</span> {output}/tmp.bed</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bL</span> {output}/tmp.bed {input.mapped} <span class="op">&gt;</span> {output.unannotated}</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Do the same for the viral contigs</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-f1</span> {input.viral} <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">'_'</span> <span class="st">'{{print $0 "\t" 0 "\t" $4}}'</span> <span class="op">&gt;</span> {output}/tmp.bed</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bL</span> {output}/tmp.bed {input.mapped} <span class="op">&gt;</span> {output.viral}</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> {output}/tmp.bed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>{input.annotated}</code>, <code>{input.unannotated}</code> and <code>{input.viral}</code> are the .tsv annotation files from <strong>step 4.3 and 5.1</strong>.</li>
-<li><code>{input.mapped}</code> is the combined .bam file from <strong>step 5.2</strong>.</li>
-<li><code>{output}</code> is a folder where temporary .bed files will be stored.</li>
-<li><code>{output.annotated}</code>, <code>{output.unannotated}</code> and <code>{output.viral}</code> are .bam files for each annotation input.</li>
-</ul>
-</section>
-<section id="count-mapped-reads" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="count-mapped-reads"><span class="header-section-number">5.4</span> Count mapped reads</h2>
-<p>Next we count the number of reads that mapped to each contig in the annotated, unannotated, and viral BAM files.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bF2052</span> {input.annotated} <span class="kw">|</span> <span class="ex">seqkit</span> bam <span class="at">-Qc</span> <span class="at">-</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'$2 != 0 {{print}}'</span> <span class="op">&gt;</span> {output.annotated}</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bF2052</span> {input.unannotated} <span class="kw">|</span> <span class="ex">seqkit</span> bam <span class="at">-Qc</span> <span class="at">-</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'$2 != 0 {{print}}'</span> <span class="op">&gt;</span> {output.unannotated}</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bF2052</span> {input.viral} <span class="kw">|</span> <span class="ex">seqkit</span> bam <span class="at">-Qc</span> <span class="at">-</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'$2 != 0 {{print}}'</span> <span class="op">&gt;</span> {output.viral}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>{input.annotated}</code>, <code>{input.unannotated}</code> and <code>{input.viral}</code> are the .bam output files from <strong>step 5.3</strong>.</li>
-<li><code>{output.annotated}</code>, <code>{output.unannotated}</code> and <code>{output.viral}</code> are .tsv files containing the read counts for each .bam file</li>
-</ul>
-</section>
-<section id="extract-contigs" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="extract-contigs"><span class="header-section-number">5.5</span> Extract contigs</h2>
-<p>Lastly, we will extract contigs for the annotated, unannotated and viral contigs.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> grep <span class="at">-f</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> {input.annotated}<span class="op">)</span> {input.contigs} <span class="op">&gt;</span> {output.annotated}</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> grep <span class="at">-f</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> {input.unannotated}<span class="op">)</span> {input.contigs} <span class="op">&gt;</span> {output.unannotated}</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> grep <span class="at">-f</span> <span class="op">&lt;(</span><span class="fu">cut</span> <span class="at">-f1</span> {input.viral}<span class="op">)</span> {input.contigs} <span class="op">&gt;</span> {output.viral}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>{input.annotated}</code>, <code>{input.unannotated}</code> and <code>{input.viral}</code> are .tsv annotation files from <strong>steps 4.3 and 5.1</strong>.</li>
-<li><code>{input.contigs}</code> is the .fasta file containing all contigs for a sample from <strong>step 3.1</strong>.</li>
-<li><code>{output.annotated}</code>, <code>{output.unannotated}</code> and <code>{output.viral}</code> are .fasta files containing the contigs.</li>
+<li><code>{environment}</code> is the name of your chosen conda environment.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -308,7 +267,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can now move to the final chapter to automate all of the steps we’ve previously discussed.</p>
+<p>We are now ready to start executing the code to perform quality control of our raw Nanopore sequencing data in the next chapter.</p>
 </div>
 </div>
 
@@ -879,13 +838,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./annotation.html" class="pagination-link" aria-label="Taxonomic classification">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taxonomic classification</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./illumina_hpc.html" class="pagination-link" aria-label="Automating data analysis">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Automating data analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./quality_control.html" class="pagination-link" aria-label="Quality control">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quality control</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
