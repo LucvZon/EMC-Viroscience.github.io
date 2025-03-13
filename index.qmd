@@ -1,9 +1,10 @@
 ---
 title: "Welcome to the EMC Viroscience site!"
 listing:
-  contents: posts
-  feed:
-    items: 10
+  type: table
+  fields: [image, date, title, author, Reading Time]
+  contents: posts/*main-page*.qmd
+sidebar: id-home
 ---
 
 This webpage hosts manuals for various bioinformatic workflows. You can explore all posts in the sidebar.
