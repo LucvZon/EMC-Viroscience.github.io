@@ -9,4 +9,4 @@ This Quarto website is hosted with [GitHub Pages](https://pages.github.com/). Qu
 
 ## Adding blogs
 
-To add blogs to this Quarto website, just place your html files within the docs/ folder. I need to test this.
+To add blogs to this Quarto website, please contact l.vanzon@erasmusmc.nl
