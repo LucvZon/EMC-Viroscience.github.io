@@ -1,7 +1,0 @@
----
-title: "Example Blog Post"
-author: "Luc van Zon"
-date: 2025-03-12
----
-
-This is the content of an example blog post!  I can use Markdown here, like **bold text** or *italics*.

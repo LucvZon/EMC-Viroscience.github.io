@@ -1,7 +1,0 @@
----
-title: "Example Post 2"
-author: "Bill Gates"
-date: 2025-03-12
----
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet nulla eget purus finibus, quis tempor justo iaculis. Integer at enim suscipit, porttitor nunc eget, porta urna. Sed sit amet dui blandit, ornare mi id, vehicula est. Fusce dignissim neque sed lacus elementum venenatis.
