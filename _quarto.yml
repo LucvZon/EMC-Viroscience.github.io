@@ -4,20 +4,26 @@ project:
 
 website:
   title: "EMC Viroscience"
+  page-navigation: true
   navbar:
     left:
       - text: "Home"
         href: index.html
       - text: "About"
         href: about.html
-      - text: "Manual"
-        href: manual/index.html
-  sidebar:
-    style: "docked"
-    contents:
-      - section: "Posts"
-        contents:
-          - auto: posts/*.qmd
+      
+  sidebar: # Define a list of sidebar configurations
+    - id: id-home
+      title: "Blog Posts"
+      style: "docked"
+      contents:
+        - auto: posts/*main-page*.qmd
+
+    - id: id-imam
+      title: "Illumina metagenomic analysis manual"
+      style: "docked"
+      contents:
+        - auto: posts/IMAM*.qmd
           
 format:
   html:
