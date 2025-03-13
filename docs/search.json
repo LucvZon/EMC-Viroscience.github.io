@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "posts/my-second-post.html",
-    "href": "posts/my-second-post.html",
-    "title": "Example Post 2",
-    "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet nulla eget purus finibus, quis tempor justo iaculis. Integer at enim suscipit, porttitor nunc eget, porta urna. Sed sit amet dui blandit, ornare mi id, vehicula est. Fusce dignissim neque sed lacus elementum venenatis."
-  },
-  {
     "objectID": "posts/IMAM-07-illumina_hpc.html",
     "href": "posts/IMAM-07-illumina_hpc.html",
     "title": "Automating data analysis",
@@ -309,12 +302,5 @@
       "Posts",
       "Extracting Viral Sequences and Analyzing Mapped Reads"
     ]
-  },
-  {
-    "objectID": "posts/my-first-post.html",
-    "href": "posts/my-first-post.html",
-    "title": "Example Blog Post",
-    "section": "",
-    "text": "This is the content of an example blog post! I can use Markdown here, like bold text or italics."
   }
 ]
