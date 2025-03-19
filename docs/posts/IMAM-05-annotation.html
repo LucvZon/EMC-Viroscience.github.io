@@ -227,23 +227,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="diamond" class="level2">
 <h2 class="anchored" data-anchor-id="diamond">Diamond</h2>
 <p>Now we will annotate the aggregated contigs by assigning taxonomic classifications to them based on sequence similarity to known proteins in a database using <a href="https://github.com/bbuchfink/diamond">diamond blastx</a>.</p>
-<p>The <code>-f 6</code> parameter will ensure the output is in a tabular format. The <code>6</code> may be followed by a space-separated list of various keywords, each specifying a field of the output. For a full description of the output, please visit <a href="https://www.metagenomics.wiki/tools/blast/blastn-output-format-6">here</a>.</p>
+<p>Please take note of the following blastx parameters: <code>-f (--outfmt)</code>, <code>-b (--block-size)</code> and <code>-c (--index-chunks)</code>, documentation can be found <a href="http://diamondsearch.org/forums/index.php?pages/command_line_options/">here</a>.</p>
+<p>The <code>-f 6</code> parameter will ensure the output is in a tabular format. The <code>6</code> may be followed by a space-separated list of various keywords, each specifying a field of the output.</p>
+<p>The <code>-b</code> parameter is the main parameter for controlling the program’s memory and disk space usage. Bigger numbers will increase the use of memory and temporary disk space, but also improve performance. The program can be expected to use roughly six times this number of memory (in GB). The default value is -b 2. The parameter can be decreased for reducing memory use, as well as increased for better performance (values of &gt;20 are not recommended).</p>
+<p>The <code>-c</code> parameter controls the number of chunks for processing the seed index. This option can be additionally used to tune the performance. The default value is -c 4, while setting this parameter to -c 1 instead will improve the performance at the cost of increased memory use.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond</span> blastx <span class="dt">\</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>-q {input} <span class="dt">\</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>-d {db} <span class="dt">\</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>-o {output} <span class="dt">\</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>-f 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids <span class="dt">\</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>--taxonmap {tx} <span class="dt">\</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>--threads {threads} <span class="dt">\</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>-b 10 <span class="at">-c</span> 1 <span class="op">&gt;</span> {log} <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>--threads {threads} <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>-b 10 <span class="at">-c</span> 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>{input}</code> is the contig file created in either <strong>step 3.3</strong> or <strong>step 3.1</strong>, depending on your amount of samples.</li>
 <li><code>{db}</code> is the protein database to be searched against.</li>
 <li><code>{output}</code> is a .tsv file containing the annotation results.</li>
-<li><code>{tx}</code> is a mapping file to convert protein accessions to taxonomic IDs.</li>
-<li><code>{log}</code> is the log directory.</li>
 </ul>
-<p>Multiple different databases and taxomaps can be found in: <code>\\cifs.research.erasmusmc.nl\viro0002\workgroups_projects\Bioinformatics\DB</code></p>
+<p>Multiple different databases can be found in: <code>\\cifs.research.erasmusmc.nl\viro0002\workgroups_projects\Bioinformatics\DB</code></p>
 </section>
 <section id="split-annotation-files" class="level2">
 <h2 class="anchored" data-anchor-id="split-annotation-files">Split annotation files</h2>
@@ -283,14 +283,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>-i {input.annotation} <span class="dt">\</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>-c {input.contigs} <span class="dt">\</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>-o {output.annotated} <span class="dt">\</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>-u {output.unannotated} <span class="dt">\</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>-log {log}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>-u {output.unannotated}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>{input.annotation}</code> is the annotation file <strong>step 4.2</strong>.</li>
 <li><code>{input.contigs}</code> are the contigs from the SPAdes <strong>step 3.1</strong>.</li>
 <li><code>{output.annotated}</code> is a .tsv file with a set of annotated contigs.</li>
 <li><code>{output.unannotated}</code> is a .tsv file with a set of unannotated contig IDs.</li>
-<li><code>{log}</code> is the log directory.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

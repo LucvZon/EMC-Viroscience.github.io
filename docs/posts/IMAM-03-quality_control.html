@@ -269,7 +269,7 @@ Important!
 <h2 class="anchored" data-anchor-id="deduplicate-reads">Deduplicate reads</h2>
 <p>This step removes duplicate reads from the uncompressed FASTQ files. Duplicate reads can arise during PCR amplification or sequencing and can skew downstream analyses. We’ll use the cd-hit-dup program to identify and remove these duplicates.</p>
 <p>After cd-hit-dup command is finished, we’ll remove the .clstr file that cd-hit-dup creates. This file contains information about the clusters of duplicate reads, but it’s not needed for downstream analysis, so we can safely remove it to save disk space.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cd-hit-dup</span> <span class="at">-u</span> 50 <span class="at">-i</span> {input.R1} <span class="at">-i2</span> {input.R2} <span class="at">-o</span> {output.R1} <span class="at">-o2</span> {output.R2} <span class="op">&gt;</span> {logs}/{sample}_cd-hit.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cd-hit-dup</span> <span class="at">-u</span> 50 <span class="at">-i</span> {input.R1} <span class="at">-i2</span> {input.R2} <span class="at">-o</span> {output.R1} <span class="at">-o2</span> {output.R2}</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> {output.dir}/<span class="pp">*</span>.clstr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -291,7 +291,7 @@ Important!
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>--cut_right_window_size 5 <span class="dt">\</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>--cut_right_mean_quality 25 <span class="dt">\</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>--thread {threads} <span class="dt">\</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>-j {output.J}/qc_report.json <span class="at">-h</span> {output.H}/qc_report.html <span class="op">&gt;</span> {log} <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>-j {output.J}/qc_report.json <span class="at">-h</span> {output.H}/qc_report.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>{input.R1}</code> and <code>{input.R2}</code> are the reads belonging to the deduplicated sample <strong>step 2.2</strong>.</li>
 <li><code>{output.R1}</code> and <code>{output.R2}</code> are the the quality controlled .fastq filenames.</li>
@@ -300,7 +300,6 @@ Important!
 <li><code>{sample}</code> is the name of your sample.</li>
 <li><code>{output.J}</code> is the directory for the json report file</li>
 <li><code>{output.H}</code> is the directory for the html report file</li>
-<li><code>{log}</code> is the directory for log files.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

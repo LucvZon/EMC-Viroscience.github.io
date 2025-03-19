@@ -229,8 +229,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="preparing-to-run-the-workflow.">Preparing to run the workflow.</h2>
 <p>To run the automated workflow, you’ll need to make sure that your project directory is set up correctly and that you have activated the necessary Conda environment.</p>
 <p>To make the project setup process even easier, we’ve created a command-line tool called <code>prepare_project.py</code>. This tool automates the creation of the project directory, the sample configuration file (<code>sample.tsv</code>), and the general settings configuration file (<code>config.yaml</code>), guiding you through each step with clear prompts and error checking.</p>
-<p>To proceed, make sure to activate the appropriate conda environment and check if the command line has <code>(stable_env_1)</code> in front.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate stable_env_1 <span class="co"># Replace environment name is needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To proceed, make sure to activate the appropriate conda environment and check if the command line has <code>(imam)</code> in front.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate imam <span class="co"># Replace environment name is needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Run prepare_project.py with Python as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> prepare_project.py <span class="at">-n</span> {name} <span class="at">-p</span> {project.folder} <span class="at">-r</span> {reads}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -244,8 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /{folder1}/{folder2} <span class="co"># Replace with the actual path to your project directory</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Next, use the <code>ls</code> command to list the files in the project directory and check if the following files are present: <code>sample.tsv</code>, <code>config.yaml</code> and <code>Snakefile</code>.</p>
 <ul>
-<li><p>The sample.tsv should have 3 columns: sample (sample name), fq1 and fq2 (paths to raw read files).</p></li>
-<li><p>The config.yaml contains more general information like the reference, database and taxonmap you supplied as well as the amount of default threads to use.</p></li>
+<li><p>The sample.tsv should have 3 columns: sample (sample name), fq1 and fq2 (paths to raw read files). Please note that samples sequenced by Illumina machines can be ran across different lanes. In such cases, the Illumina software will generate multiple fastq files for each sample that are lane specific (e.g.&nbsp;L001 = Lane 1, etc). So you may end up with a sample.tsv file that contains samples like <code>1_S1_L001</code> and <code>1_S1_L002</code>, even though these are the same sample, just sequenced across different lanes. The snakemake workflow will recognize this behaviour and merge these files together accordingly.</p></li>
+<li><p>The config.yaml contains more general information like the reference and database you supplied as well as the amount of default threads to use.</p></li>
 <li><p>The Snakefile is the “recipe” for the workflow, describing all the steps we have done by hand, and it is most commonly placed in the root directory of your project (you can open the Snakefile with a text editor and have a look).</p></li>
 </ul>
 </section>
@@ -256,9 +256,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snakemake</span> <span class="dt">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>--snakefile <span class="dt">\</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Snakefile <span class="dt">\</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>--use-conda <span class="dt">\</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>--cores {threads} <span class="dt">\</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>--dryrun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>--cores {threads} <span class="dt">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>--dryrun</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If no errors appear, then remove the <code>--dryrun</code> argument and run it again to fully execute the workflow.</p>
 
 
