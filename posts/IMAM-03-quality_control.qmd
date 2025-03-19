@@ -54,7 +54,7 @@ This step removes duplicate reads from the uncompressed FASTQ files. Duplicate r
 After cd-hit-dup command is finished, we'll remove the .clstr file that cd-hit-dup creates. This file contains information about the clusters of duplicate reads, but it's not needed for downstream analysis, so we can safely remove it to save disk space.
 
 ``` bash
-cd-hit-dup -u 50 -i {input.R1} -i2 {input.R2} -o {output.R1} -o2 {output.R2} > {logs}/{sample}_cd-hit.log 2>&1
+cd-hit-dup -u 50 -i {input.R1} -i2 {input.R2} -o {output.R1} -o2 {output.R2}
 
 rm {output.dir}/*.clstr
 ```
@@ -79,7 +79,7 @@ fastp -i {input.R1} -I {input.R2} \
 --cut_right_window_size 5 \
 --cut_right_mean_quality 25 \
 --thread {threads} \
--j {output.J}/qc_report.json -h {output.H}/qc_report.html > {log} 2>&1
+-j {output.J}/qc_report.json -h {output.H}/qc_report.html
 ```
 
 -   `{input.R1}` and `{input.R2}` are the reads belonging to the deduplicated sample **step 2.2**.
@@ -89,7 +89,6 @@ fastp -i {input.R1} -I {input.R2} \
 -   `{sample}` is the name of your sample.
 -   `{output.J}` is the directory for the json report file
 -   `{output.H}` is the directory for the html report file
--   `{log}` is the directory for log files.
 
 ::: callout-note
 `{threads}` is a recurring setting for the number of CPUs to use for the processing. On a laptop this will be less (e.g. 8), on an HPC you may be able to use 64 or more CPUs for processing. However, how much performance increase you get depends on the software.

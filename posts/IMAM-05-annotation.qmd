@@ -4,7 +4,13 @@
 
 Now we will annotate the aggregated contigs by assigning taxonomic classifications to them based on sequence similarity to known proteins in a database using [diamond blastx](https://github.com/bbuchfink/diamond).
 
-The `-f 6` parameter will ensure the output is in a tabular format. The `6` may be followed by a space-separated list of various keywords, each specifying a field of the output. For a full description of the output, please visit [here](https://www.metagenomics.wiki/tools/blast/blastn-output-format-6).
+Please take note of the following blastx parameters: `-f (--outfmt)`, `-b (--block-size)` and `-c (--index-chunks)`, documentation can be found [here](http://diamondsearch.org/forums/index.php?pages/command_line_options/).
+
+The `-f 6` parameter will ensure the output is in a tabular format. The `6` may be followed by a space-separated list of various keywords, each specifying a field of the output.
+
+The `-b` parameter is the main parameter for controlling the program’s memory and disk space usage. Bigger numbers will increase the use of memory and temporary disk space, but also improve performance. The program can be expected to use roughly six times this number of memory (in GB). The default value is -b 2. The parameter can be decreased for reducing memory use, as well as increased for better performance (values of \>20 are not recommended).
+
+The `-c` parameter controls the number of chunks for processing the seed index. This option can be additionally used to tune the performance. The default value is -c 4, while setting this parameter to -c 1 instead will improve the performance at the cost of increased memory use.
 
 ``` bash
 diamond blastx \
@@ -12,18 +18,15 @@ diamond blastx \
 -d {db} \
 -o {output} \
 -f 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids \
---taxonmap {tx} \
 --threads {threads} \
--b 10 -c 1 > {log} 2>&1
+-b 10 -c 1
 ```
 
 -   `{input}` is the contig file created in either **step 3.3** or **step 3.1**, depending on your amount of samples.
 -   `{db}` is the protein database to be searched against.
 -   `{output}` is a .tsv file containing the annotation results.
--   `{tx}` is a mapping file to convert protein accessions to taxonomic IDs.
--   `{log}` is the log directory.
 
-Multiple different databases and taxomaps can be found in: `\\cifs.research.erasmusmc.nl\viro0002\workgroups_projects\Bioinformatics\DB`
+Multiple different databases can be found in: `\\cifs.research.erasmusmc.nl\viro0002\workgroups_projects\Bioinformatics\DB`
 
 ## Split annotation files
 
@@ -69,15 +72,13 @@ python /mnt/viro0002/workgroups_projects/Bioinformatics/scripts/post_process_dia
 -i {input.annotation} \
 -c {input.contigs} \
 -o {output.annotated} \
--u {output.unannotated} \
--log {log}
+-u {output.unannotated}
 ```
 
 -   `{input.annotation}` is the annotation file **step 4.2**.
 -   `{input.contigs}` are the contigs from the SPAdes **step 3.1**.
 -   `{output.annotated}` is a .tsv file with a set of annotated contigs.
 -   `{output.unannotated}` is a .tsv file with a set of unannotated contig IDs.
--   `{log}` is the log directory.
 
 ::: callout-note
 We can now move on to the final steps where we will create various files needed for downstream analysis.
