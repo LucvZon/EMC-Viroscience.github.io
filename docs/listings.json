@@ -1,8 +1,15 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/workflows.html",
     "items": [
       "/posts/IMAM-01-main-page-index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/repos/01_repo1.html",
+      "/repos/02_repo2.html"
     ]
   }
 ]
