@@ -3,10 +3,11 @@ title: ""
 date: 2025-03-13
 ---
 
+## Github Pages
+
+To add blogs to this Quarto website, please contact l.vanzon@erasmusmc.nl
+
 ## Quarto
 
 This Quarto website is hosted with [GitHub Pages](https://pages.github.com/). Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-## Adding blogs
-
-To add blogs to this Quarto website, please contact l.vanzon@erasmusmc.nl
