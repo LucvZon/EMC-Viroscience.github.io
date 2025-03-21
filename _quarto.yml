@@ -7,12 +7,22 @@ website:
   page-navigation: true
   
   navbar:
+    right:
+      - text: "About"
+        href: about.qmd
+      - text: "Contribute"
+        menu:
+          - text: "Contribute to the EMC viroscience repo"
+            href: contribute/01_github.qmd
+          - text: "Contribute to this website"
+            href: contribute/02_manuals.qmd
+    
     left:
       - text: "Home"
-        href: index.html
-      - text: "About"
-        href: about.html
-    tools:
+        href: index.qmd
+      - text: "Workflows"
+        href: workflows.qmd
+      - text: "Tools"
       - icon: github
         menu:
           - text: Source code
@@ -25,7 +35,7 @@ website:
             url: https://github.com/LucvZon/EMC-Viroscience.github.io/issues/new?assignees=&labels=enhancement&projects=&template=feature-request.yml&title=feat
       
   sidebar: # Define a list of sidebar configurations
-    - id: id-home
+    - id: id-blogs
       title: "Blog Posts"
       style: "docked"
       contents:
@@ -40,5 +50,5 @@ website:
 format:
   html:
     theme:
-      light: jekyll-theme-minimal
       dark: darkly
+      light: jekyll-theme-minimal
