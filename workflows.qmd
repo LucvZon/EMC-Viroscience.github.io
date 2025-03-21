@@ -1,0 +1,10 @@
+---
+title: "Workflow manuals"
+listing:
+  type: table
+  fields: [image, date, title, author, Reading Time]
+  contents: posts/*main-page*.qmd
+sidebar: id-blogs
+---
+
+This section hosts manuals for various bioinformatic workflows.

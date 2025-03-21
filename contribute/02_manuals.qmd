@@ -1,0 +1,22 @@
+---
+title: "Adding content"
+format: html
+---
+
+## Workflow manuals
+
+Manuals are written in quarto documents `.qmd`
+
+### install quarto
+
+### rstudio
+
+### git
+
+### sync with github
+
+## Tools
+
+Placeholder text.
+
+## Adding your repo to the frontpage
