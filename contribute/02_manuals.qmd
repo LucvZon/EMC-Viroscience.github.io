@@ -3,20 +3,38 @@ title: "Adding content"
 format: html
 ---
 
-## Workflow manuals
+## Writing workflow manuals
 
-Manuals are written in quarto documents `.qmd`
+Manuals for the workflows are written in Quarto documents (qmd). If you want to contribute your own workflow to this website, then please follow the instructions below.
 
-### install quarto
+### 1. Install Quarto
 
-### rstudio
+ Get the latest version of Quarto [here](https://quarto.org/docs/get-started/){target="_blank"}
 
-### git
+### 2. Choose your IDE
 
-### sync with github
+Quarto has documentation available for writing and editing Quarto documents in RStudio, VSCode, Jupyter, and any text editor. Preferably RStudio because the emc github pages repo is build with RStudio, and you can load this entire project by cloning the repo and opening the .Rproj file in RStudio
+
+### GIT
+
+You will need GIT to enable version control for your Quarto projects.
+
+### Sync with your GitHub account
 
 ## Tools
 
-Placeholder text.
+If you want to add your tool to this website ... [Placeholder text]
 
 ## Adding your repo to the frontpage
+
+The frontpage of this website shows an overview of the repositories on the EMC Viroscience GitHub account. If your repository to be visible on this frontpage then you need to:
+1. Fork your repo to the EMC Viroscience GitHub
+2. Open the .Rproj file from EMC-Viroscience.github.io repo in RStudio. Create a Quarto document in the repos/ folder. 
+3. Edit the 
+---
+title: "title of your repository"
+format: html
+image: "your_thumbnail_image.jpg"
+draft: false
+---
+The image format can be jpeg,jpg,png.. no webp though. 
