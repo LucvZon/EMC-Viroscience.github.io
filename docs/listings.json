@@ -8,6 +8,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/repos/03_repo3.html",
       "/repos/01_repo1.html",
       "/repos/02_repo2.html"
     ]
