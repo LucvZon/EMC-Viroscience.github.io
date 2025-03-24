@@ -2,8 +2,9 @@
 title: "Welcome to the EMC Viroscience site!"
 listing:
   contents: repos/*.qmd
-  type: default
+  type: grid
+  fields: [image, title, description]
 sidebar: id-blogs
 ---
 
-This is the landing page for the [EMC Viroscience github](https://github.com/EMC-Viroscience). 
+This is the landing page for the [EMC Viroscience GitHub](https://github.com/EMC-Viroscience){target="_blank"}. 
