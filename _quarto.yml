@@ -52,3 +52,4 @@ format:
     theme:
       dark: darkly
       light: jekyll-theme-minimal
+      toc: true
