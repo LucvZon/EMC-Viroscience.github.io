@@ -2,6 +2,7 @@
 title: "SARS-CoV-2_submission"
 format: html
 image: "penguins.png"
+href: "https://github.com/EMC-Viroscience/updated_illumina_workflow"
 draft: false
 ---
 
