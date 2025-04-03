@@ -143,7 +143,19 @@
     "href": "posts/IMAM-01-main-page-index.html",
     "title": "Illumina metagenomic analysis manual",
     "section": "",
-    "text": "Introduction\nWelcome to the Illumina metagenomic data analysis manual. This manual contains a step by step guide for performing quality control, filtering host sequences, assembling reads into contigs, annotating the contigs, and then extracing viral contigs and their corresponding reads. In the final chapter of the manual we will show how to automate all of these steps into a single pipeline for speed and convenience.",
+    "text": "Welcome to the Illumina metagenomic data analysis manual. This manual contains a step by step guide for performing quality control, filtering host sequences, assembling reads into contigs, annotating the contigs, and then extracing viral contigs and their corresponding reads. In the final chapter of the manual we will show how to automate all of these steps into a single pipeline for speed and convenience.",
+    "crumbs": [
+      "Home",
+      "Posts",
+      "Illumina metagenomic analysis manual"
+    ]
+  },
+  {
+    "objectID": "posts/IMAM-01-main-page-index.html#can-we-see-these-though",
+    "href": "posts/IMAM-01-main-page-index.html#can-we-see-these-though",
+    "title": "Illumina metagenomic analysis manual",
+    "section": "Can we see these though?",
+    "text": "Can we see these though?",
     "crumbs": [
       "Home",
       "Posts",
