@@ -271,12 +271,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quality-control" id="toc-quality-control" class="nav-link active" data-scroll-target="#quality-control">Quality control</a>
+  <li><a href="#quality-control" id="toc-quality-control" class="nav-link active" data-scroll-target="#quality-control"><span class="header-section-number">1</span> Quality control</a>
   <ul class="collapse">
-  <li><a href="#merging-and-decompressing-fastq" id="toc-merging-and-decompressing-fastq" class="nav-link" data-scroll-target="#merging-and-decompressing-fastq">Merging and decompressing FASTQ</a></li>
-  <li><a href="#deduplicate-reads" id="toc-deduplicate-reads" class="nav-link" data-scroll-target="#deduplicate-reads">Deduplicate reads</a></li>
-  <li><a href="#running-fastp-quality-control-software" id="toc-running-fastp-quality-control-software" class="nav-link" data-scroll-target="#running-fastp-quality-control-software">Running fastp quality control software</a></li>
-  <li><a href="#host-filtering" id="toc-host-filtering" class="nav-link" data-scroll-target="#host-filtering">Host filtering</a></li>
+  <li><a href="#merging-and-decompressing-fastq" id="toc-merging-and-decompressing-fastq" class="nav-link" data-scroll-target="#merging-and-decompressing-fastq"><span class="header-section-number">1.1</span> Merging and decompressing FASTQ</a></li>
+  <li><a href="#deduplicate-reads" id="toc-deduplicate-reads" class="nav-link" data-scroll-target="#deduplicate-reads"><span class="header-section-number">1.2</span> Deduplicate reads</a></li>
+  <li><a href="#running-fastp-quality-control-software" id="toc-running-fastp-quality-control-software" class="nav-link" data-scroll-target="#running-fastp-quality-control-software"><span class="header-section-number">1.3</span> Running fastp quality control software</a></li>
+  <li><a href="#host-filtering" id="toc-host-filtering" class="nav-link" data-scroll-target="#host-filtering"><span class="header-section-number">1.4</span> Host filtering</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -287,8 +287,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="quality-control" class="level1">
-<h1>Quality control</h1>
+<section id="quality-control" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Quality control</h1>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,8 +318,8 @@ Important!
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> log</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a subdirectory</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/assembly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="merging-and-decompressing-fastq" class="level2">
-<h2 class="anchored" data-anchor-id="merging-and-decompressing-fastq">Merging and decompressing FASTQ</h2>
+<section id="merging-and-decompressing-fastq" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="merging-and-decompressing-fastq"><span class="header-section-number">1.1</span> Merging and decompressing FASTQ</h2>
 <p>Any file in linux can be pasted to another file using the cat command. zcat in addition also unzips gzipped files (e.g.&nbsp;.fastq.gz extension). If your files are already unzipped, use cat instead.</p>
 <p><strong>Modify and run:</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> {input.folder}/{sample}_R1_001.fastq.gz <span class="op">&gt;</span> {output.folder}/{sample}_R1.fastq</span>
@@ -330,8 +330,8 @@ Important!
 <li><code>{output.folder}</code> is where your decompressed .fastq files will be stored.</li>
 </ul>
 </section>
-<section id="deduplicate-reads" class="level2">
-<h2 class="anchored" data-anchor-id="deduplicate-reads">Deduplicate reads</h2>
+<section id="deduplicate-reads" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="deduplicate-reads"><span class="header-section-number">1.2</span> Deduplicate reads</h2>
 <p>This step removes duplicate reads from the uncompressed FASTQ files. Duplicate reads can arise during PCR amplification or sequencing and can skew downstream analyses. We’ll use the cd-hit-dup program to identify and remove these duplicates.</p>
 <p>After cd-hit-dup command is finished, we’ll remove the .clstr file that cd-hit-dup creates. This file contains information about the clusters of duplicate reads, but it’s not needed for downstream analysis, so we can safely remove it to save disk space.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cd-hit-dup</span> <span class="at">-u</span> 50 <span class="at">-i</span> {input.R1} <span class="at">-i2</span> {input.R2} <span class="at">-o</span> {output.R1} <span class="at">-o2</span> {output.R2}</span>
@@ -343,8 +343,8 @@ Important!
 <li><code>{output.dir}</code> This should be pointed to wherever your deduplicated reads are stored.</li>
 </ul>
 </section>
-<section id="running-fastp-quality-control-software" class="level2">
-<h2 class="anchored" data-anchor-id="running-fastp-quality-control-software">Running fastp quality control software</h2>
+<section id="running-fastp-quality-control-software" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="running-fastp-quality-control-software"><span class="header-section-number">1.3</span> Running fastp quality control software</h2>
 <p>The <a href="https://github.com/OpenGene/fastp">fastp</a> software is a very fast multipurpose quality control software to perform quality and sequence adapter trimming for Illumina short-read and Nanopore long-read data.</p>
 <p><strong>Run and modify:</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-i</span> {input.R1} <span class="at">-I</span> {input.R2} <span class="dt">\</span></span>
@@ -380,8 +380,8 @@ Note
 </div>
 </div>
 </section>
-<section id="host-filtering" class="level2">
-<h2 class="anchored" data-anchor-id="host-filtering">Host filtering</h2>
+<section id="host-filtering" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="host-filtering"><span class="header-section-number">1.4</span> Host filtering</h2>
 <p>This step removes reads that map to a host genome (e.g., human). This is important if you’re studying metagenomes from a host-associated environment (e.g., gut microbiome, skin surface).</p>
 <p>To improve computational speed and reduce memory usage, it is required to index your reference sequence before proceeding to the host filtering step.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index reference genome</span></span>
@@ -991,6 +991,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="styling/custom.js"></script>
 
 
 

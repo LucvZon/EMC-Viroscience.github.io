@@ -271,11 +271,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#de-novo-assembly" id="toc-de-novo-assembly" class="nav-link active" data-scroll-target="#de-novo-assembly">De novo assembly</a>
+  <li><a href="#de-novo-assembly" id="toc-de-novo-assembly" class="nav-link active" data-scroll-target="#de-novo-assembly"><span class="header-section-number">1</span> De novo assembly</a>
   <ul class="collapse">
-  <li><a href="#metaspades" id="toc-metaspades" class="nav-link" data-scroll-target="#metaspades">metaSPades</a></li>
-  <li><a href="#renaming-contigs" id="toc-renaming-contigs" class="nav-link" data-scroll-target="#renaming-contigs">Renaming contigs:</a></li>
-  <li><a href="#aggregating-contigs" id="toc-aggregating-contigs" class="nav-link" data-scroll-target="#aggregating-contigs">Aggregating contigs:</a></li>
+  <li><a href="#metaspades" id="toc-metaspades" class="nav-link" data-scroll-target="#metaspades"><span class="header-section-number">1.1</span> metaSPades</a></li>
+  <li><a href="#renaming-contigs" id="toc-renaming-contigs" class="nav-link" data-scroll-target="#renaming-contigs"><span class="header-section-number">1.2</span> Renaming contigs:</a></li>
+  <li><a href="#aggregating-contigs" id="toc-aggregating-contigs" class="nav-link" data-scroll-target="#aggregating-contigs"><span class="header-section-number">1.3</span> Aggregating contigs:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -286,10 +286,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="de-novo-assembly" class="level1">
-<h1>De novo assembly</h1>
-<section id="metaspades" class="level2">
-<h2 class="anchored" data-anchor-id="metaspades">metaSPades</h2>
+<section id="de-novo-assembly" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> De novo assembly</h1>
+<section id="metaspades" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="metaspades"><span class="header-section-number">1.1</span> metaSPades</h2>
 <p>We will perform de novo assembly of the host-filtered reads to create contigs (longer, assembled sequences) with <a href="https://github.com/ablab/spades">SPades</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">spades.py</span> <span class="at">-t</span> {threads} <span class="dt">\</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>--meta <span class="dt">\</span></span>
@@ -303,8 +303,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>{output}</code> defines the directory where the assembly results will be stored.</li>
 </ul>
 </section>
-<section id="renaming-contigs" class="level2">
-<h2 class="anchored" data-anchor-id="renaming-contigs">Renaming contigs:</h2>
+<section id="renaming-contigs" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="renaming-contigs"><span class="header-section-number">1.2</span> Renaming contigs:</h2>
 <p>We will add sample names to the beginning of each contig name. This will make sure that each sample’s contig names are unique before we start aggregating contigs. If you are only dealing with a single sample, then this step can be seen as optional.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> replace <span class="at">-p</span> <span class="st">"^"</span> <span class="at">-r</span> <span class="st">"{sample}_"</span> {input} <span class="op">&gt;</span> {output}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -313,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>{output}</code> is fasta file with the renamed contig</li>
 </ul>
 </section>
-<section id="aggregating-contigs" class="level2">
-<h2 class="anchored" data-anchor-id="aggregating-contigs">Aggregating contigs:</h2>
+<section id="aggregating-contigs" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="aggregating-contigs"><span class="header-section-number">1.3</span> Aggregating contigs:</h2>
 <p>Next we will combine all renamed contigs into a single fasta file so we can perform taxonomic annotation across all samples in one go. Once again, this step can be seen as optional if you have a single sample.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> {input} <span class="op">&gt;</span> {output}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -914,6 +914,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="styling/custom.js"></script>
 
 
 

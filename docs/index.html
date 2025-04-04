@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-direct-links .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -82,11 +82,11 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-image"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-direct-links'] = new List('listing-direct-links', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -269,59 +269,104 @@ window.Quarto = {
 
 
 <p>This is the landing page for the <a href="https://github.com/EMC-Viroscience" target="_blank">EMC Viroscience GitHub</a>.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<section id="direct-links" class="level2 unnumbered unlisted">
+<h2 class="unnumbered unlisted anchored" data-anchor-id="direct-links">Direct links</h2>
+<div id="listing-direct-links" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1742805512853" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="./repos/03_repo3.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0">
+<a href="https://github.com/EMC-Viroscience/updated_illumina_workflow" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-SARS-CoV-2_submission
+updated_illumina_workflow
 </h5>
-<div class="card-text listing-description">
-
-</div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1742805514968" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="./repos/01_repo1.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1">
+<a href="https://github.com/EMC-Viroscience/USUV_submission" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 USUV_submission
 </h5>
-<div class="card-text listing-description">
-
-</div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1742805510602" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="./repos/02_repo2.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2">
+<a href="https://github.com/EMC-Viroscience/SARS-CoV-2_submission" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+SARS-CoV-2_submission
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3">
+<a href="https://github.com/EMC-Viroscience/ENA-submission" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ENA-submission
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4">
+<a href="https://github.com/EMC-Viroscience/Worp_etal_Global_Sewage_Virome" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Worp_etal_Global_Sewage_Virome
 </h5>
-<div class="card-text listing-description">
-
 </div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5">
+<a href="https://github.com/EMC-Viroscience/Rashidi_et_al-2024-COVID19-brain-apoptosis" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Rashidi_et_al-2024-COVID19-brain-apoptosis
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6">
+<a href="https://github.com/EMC-Viroscience/tsv2xmlParser" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="repos/penguins.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+tsv2xmlParser
+</h5>
 </div>
 </div>
 </a>
@@ -330,7 +375,17 @@ Worp_etal_Global_Sewage_Virome
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+<!-- ## Special repos {.unnumbered} -->
+<!-- These repositories have dedicated pages on this website.  -->
+<!-- :::{#special_repos} -->
+<!-- ::: -->
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -893,6 +948,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script src="styling/custom.js"></script>
 
 
 
