@@ -49,7 +49,11 @@ website:
           
 format:
   html:
+    include-after-body:
+      - text: |
+          <script src="styling/custom.js"></script>
     toc: true
+    number-sections: true
     theme:
       dark: darkly
       light: jekyll-theme-minimal
