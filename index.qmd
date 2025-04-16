@@ -15,15 +15,18 @@ listing:
       - path: https://github.com/EMC-Viroscience/ENA-submission
         title: "ENA-submission"
         image: "repos/penguins.png"
+      - path: https://github.com/EMC-Viroscience/tsv2xmlParser
+        title: "tsv2xmlParser"
+        image: "repos/penguins.png"
+      - path: https://github.com/BOM86/Genomic-monitoring-mpox-in-Burundi
+        title: "Genomic-monitoring-mpox-in-Burundi"
+        image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/Worp_etal_Global_Sewage_Virome
         title: "Worp_etal_Global_Sewage_Virome"
         image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/Rashidi_et_al-2024-COVID19-brain-apoptosis
         title: "Rashidi_et_al-2024-COVID19-brain-apoptosis"
         image: "repos/penguins.png"
-      - path: https://github.com/EMC-Viroscience/tsv2xmlParser
-        title: "tsv2xmlParser"
-        image: "repos/penguins.png"    
     type: grid
     fields: [image, title, description]
   # - id: special-repos
