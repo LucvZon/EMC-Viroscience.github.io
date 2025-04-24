@@ -196,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/IMAM-01-main-page-index.html">Posts</a></li><li class="breadcrumb-item"><a href="../posts/IMAM-04-assembly.html">De novo assembly</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/IMAM-01-main-page-index.html">Posts</a></li><li class="breadcrumb-item"><a href="../posts/IMAM-04-assembly.html">3. De novo assembly</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -226,37 +226,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../posts/IMAM-02-preparation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preparation</span></a>
+ <span class="menu-text">1. Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../posts/IMAM-03-quality_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quality control</span></a>
+ <span class="menu-text">2. Quality control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../posts/IMAM-04-assembly.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">De novo assembly</span></a>
+ <span class="menu-text">3. De novo assembly</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../posts/IMAM-05-annotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Taxonomic classification</span></a>
+ <span class="menu-text">4. Taxonomic classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../posts/IMAM-06-parse_annotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extracting Viral Sequences and Analyzing Mapped Reads</span></a>
+ <span class="menu-text">5. Extracting Viral Sequences and Analyzing Mapped Reads</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../posts/IMAM-07-illumina_hpc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Automating data analysis</span></a>
+ <span class="menu-text">6. Automating data analysis</span></a>
   </div>
 </li>
       </ul>
@@ -271,25 +271,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#de-novo-assembly" id="toc-de-novo-assembly" class="nav-link active" data-scroll-target="#de-novo-assembly"><span class="header-section-number">1</span> De novo assembly</a>
+  <li><a href="#de-novo-assembly" id="toc-de-novo-assembly" class="nav-link active" data-scroll-target="#de-novo-assembly">3. De novo assembly</a>
   <ul class="collapse">
-  <li><a href="#metaspades" id="toc-metaspades" class="nav-link" data-scroll-target="#metaspades"><span class="header-section-number">1.1</span> metaSPades</a></li>
-  <li><a href="#renaming-contigs" id="toc-renaming-contigs" class="nav-link" data-scroll-target="#renaming-contigs"><span class="header-section-number">1.2</span> Renaming contigs:</a></li>
-  <li><a href="#aggregating-contigs" id="toc-aggregating-contigs" class="nav-link" data-scroll-target="#aggregating-contigs"><span class="header-section-number">1.3</span> Aggregating contigs:</a></li>
+  <li><a href="#metaspades" id="toc-metaspades" class="nav-link" data-scroll-target="#metaspades">3.1 metaSPades</a></li>
+  <li><a href="#renaming-contigs" id="toc-renaming-contigs" class="nav-link" data-scroll-target="#renaming-contigs">3.2 Renaming contigs</a></li>
+  <li><a href="#aggregating-contigs" id="toc-aggregating-contigs" class="nav-link" data-scroll-target="#aggregating-contigs">3.3 Aggregating contigs</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/IMAM-01-main-page-index.html">Posts</a></li><li class="breadcrumb-item"><a href="../posts/IMAM-04-assembly.html">De novo assembly</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/IMAM-01-main-page-index.html">Posts</a></li><li class="breadcrumb-item"><a href="../posts/IMAM-04-assembly.html">3. De novo assembly</a></li></ol></nav></header>
 
 
 
 
-<section id="de-novo-assembly" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> De novo assembly</h1>
-<section id="metaspades" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="metaspades"><span class="header-section-number">1.1</span> metaSPades</h2>
+<section id="de-novo-assembly" class="level1 unnumbered">
+<h1 class="unnumbered">3. De novo assembly</h1>
+<section id="metaspades" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="metaspades">3.1 metaSPades</h2>
 <p>We will perform de novo assembly of the host-filtered reads to create contigs (longer, assembled sequences) with <a href="https://github.com/ablab/spades" target="_blank">SPades</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">spades.py</span> <span class="at">-t</span> {threads} <span class="dt">\</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>--meta <span class="dt">\</span></span>
@@ -303,8 +303,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>{output}</code> defines the directory where the assembly results will be stored.</li>
 </ul>
 </section>
-<section id="renaming-contigs" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="renaming-contigs"><span class="header-section-number">1.2</span> Renaming contigs:</h2>
+<section id="renaming-contigs" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="renaming-contigs">3.2 Renaming contigs</h2>
 <p>We will add sample names to the beginning of each contig name. This will make sure that each sample’s contig names are unique before we start aggregating contigs. If you are only dealing with a single sample, then this step can be seen as optional.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">seqkit</span> replace <span class="at">-p</span> <span class="st">"^"</span> <span class="at">-r</span> <span class="st">"{sample}_"</span> {input} <span class="op">&gt;</span> {output}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -313,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>{output}</code> is fasta file with the renamed contig</li>
 </ul>
 </section>
-<section id="aggregating-contigs" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="aggregating-contigs"><span class="header-section-number">1.3</span> Aggregating contigs:</h2>
+<section id="aggregating-contigs" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aggregating-contigs">3.3 Aggregating contigs</h2>
 <p>Next we will combine all renamed contigs into a single fasta file so we can perform taxonomic annotation across all samples in one go. Once again, this step can be seen as optional if you have a single sample.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> {input} <span class="op">&gt;</span> {output}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -903,13 +903,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../posts/IMAM-03-quality_control.html" class="pagination-link" aria-label="Quality control">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Quality control</span>
+      <a href="../posts/IMAM-03-quality_control.html" class="pagination-link" aria-label="2. Quality control">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Quality control</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../posts/IMAM-05-annotation.html" class="pagination-link" aria-label="Taxonomic classification">
-        <span class="nav-page-text">Taxonomic classification</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../posts/IMAM-05-annotation.html" class="pagination-link" aria-label="4. Taxonomic classification">
+        <span class="nav-page-text">4. Taxonomic classification</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
