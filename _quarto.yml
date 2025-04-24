@@ -53,7 +53,7 @@ format:
       - text: |
           <script src="styling/custom.js"></script>
     toc: true
-    number-sections: true
+    number-sections: false
     theme:
       dark: darkly
       light: jekyll-theme-minimal
