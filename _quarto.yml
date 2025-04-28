@@ -8,13 +8,11 @@ website:
   
   navbar:
     right:
-      - text: "About"
-        href: about.qmd
       - text: "Contribute"
         menu:
-          - text: "Contribute to the EMC viroscience repo"
+          - text: "About"
             href: contribute/01_github.qmd
-          - text: "Contribute to this website"
+          - text: "Add workflow manuals"
             href: contribute/02_manuals.qmd
     
     left:
