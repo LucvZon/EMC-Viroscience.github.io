@@ -153,65 +153,37 @@
   {
     "objectID": "contribute/02_manuals.html",
     "href": "contribute/02_manuals.html",
-    "title": "title of your repository",
+    "title": "Add workflow manuals",
     "section": "",
-    "text": "Manuals for the workflows are written in Quarto documents (qmd). If you want to contribute your own workflow to this website, then please follow the instructions below.\n\n\nGet the latest version of Quarto here\n\n\n\nQuarto has documentation available for writing and editing Quarto documents in RStudio, VSCode, Jupyter, and any text editor. Preferably RStudio because the emc github pages repo is build with RStudio, and you can load this entire project by cloning the repo and opening the .Rproj file in RStudio\n\n\n\nYou will need GIT to enable version control for your Quarto projects."
-  },
-  {
-    "objectID": "contribute/02_manuals.html#writing-workflow-manuals",
-    "href": "contribute/02_manuals.html#writing-workflow-manuals",
-    "title": "title of your repository",
-    "section": "",
-    "text": "Manuals for the workflows are written in Quarto documents (qmd). If you want to contribute your own workflow to this website, then please follow the instructions below.\n\n\nGet the latest version of Quarto here\n\n\n\nQuarto has documentation available for writing and editing Quarto documents in RStudio, VSCode, Jupyter, and any text editor. Preferably RStudio because the emc github pages repo is build with RStudio, and you can load this entire project by cloning the repo and opening the .Rproj file in RStudio\n\n\n\nYou will need GIT to enable version control for your Quarto projects."
-  },
-  {
-    "objectID": "contribute/02_manuals.html#tools",
-    "href": "contribute/02_manuals.html#tools",
-    "title": "title of your repository",
-    "section": "Tools",
-    "text": "Tools\nIf you want to add your tool to this website … [Placeholder text]"
-  },
-  {
-    "objectID": "contribute/02_manuals.html#adding-your-repo-to-the-frontpage",
-    "href": "contribute/02_manuals.html#adding-your-repo-to-the-frontpage",
-    "title": "title of your repository",
-    "section": "Adding your repo to the frontpage",
-    "text": "Adding your repo to the frontpage\nThe frontpage of this website shows an overview of the repositories on the EMC Viroscience GitHub account. If your repository to be visible on this frontpage then you need to: 1. Fork your repo to the EMC Viroscience GitHub 2. Open the .Rproj file from EMC-Viroscience.github.io repo in RStudio. Create a Quarto document in the repos/ folder. 3. Edit the\nThe image format can be jpeg,jpg,png.. no webp though."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "EMC Viroscience",
-    "section": "",
-    "text": "To add blogs to this Quarto website, please contact l.vanzon@erasmusmc.nl"
-  },
-  {
-    "objectID": "about.html#github-pages",
-    "href": "about.html#github-pages",
-    "title": "EMC Viroscience",
-    "section": "",
-    "text": "To add blogs to this Quarto website, please contact l.vanzon@erasmusmc.nl"
-  },
-  {
-    "objectID": "about.html#quarto",
-    "href": "about.html#quarto",
-    "title": "EMC Viroscience",
-    "section": "Quarto",
-    "text": "Quarto\nThis Quarto website is hosted with GitHub Pages. Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Manuals for the workflows are written in Quarto documents (qmd). If you want to contribute your own workflow to this website, then please read the instructions below.\n\n1. Install Quarto\nGet the latest version of Quarto https://quarto.org/docs/get-started/\n\n\n2. Choose your IDE\nQuarto has documentation available for writing and editing Quarto documents in RStudio, VSCode, Jupyter, and any text editor. The prefered IDE is RStudio because the EMC-Viroscience repository is build with RStudio, and you can load this entire project by cloning the repo and opening the .Rproj file in RStudio.\n\n\n3. Install Git\nYou will need Git to enable version control for your Quarto projects. Download the installer from here: https://git-scm.com/downloads. After installing, open RStudio, go to ‘Tools’ &gt; ‘Global Options’ &gt; ‘Git/SVN’ and make sure ‘Enable version control interface for RStudio projects’ is enabled.\n\n\n4. Write your manual as a Quarto book\nIn RStudio, create a new project for your manual. There should be a ‘Quarto Book’ option if you have Quarto installed. Quarto books are convenient because it serves as a template to easily to create a combination of multiple documents (chapters) into a book-like page.\nIn order to easily add your quarto book to the EMV-Viroscience website, you should employ a specific naming scheme. Ideally, the files adhere to the following template: {id}{number}{name}.qmd\n\n{id} should be a unique identifier for your manual.\n{number} should correspond to the chapter number.\n{name} name can be anything that resembles your chapter name.\n\nA Quarto book must have an index.qmd file, therefore you should not adjust the filename for the index. However, if you want to host your book on the EMC-Viroscience website, then you will need to change the index.qmd name. More on this later.\n\n\n5. Sync your quarto book to your github account\nIn RStudio, move to the ‘Terminal’ tab. Make sure you are located inside of your project directory.\nIn the terminal:\ngit init\ngit add .\ngit commit -m \"Initial commit\"\ngit remote add origin https://github.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY-NAME.git\ngit push -u origin master \nThe branch you push to should be ‘master’ if the newly created repo is completely empty, otherwise it’s probably ‘main’.\n\n\n6. Host your manual with github pages\n\nGo to your GitHub repository in your web browser\nClick on “Settings”\nScroll down to the “Pages” section (usually under “Code and automation”)\nUnder “Source”, select “Deploy from a branch” Choose the main branch. Select /docs as the folder. This is very important. GitHub Pages will now serve your site from the docs directory that Quarto generated. Click “Save.”\n\nIt may take a few minutes for GitHub Pages to deploy your site. You can check the deployment status in the “Actions” tab of your repository.\nhttps://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME\n\n\n7. Implement your quarto book into the EMC Viroscience Quarto website\n\nClone the repository\nPlace your .qmd files from your quarto book into the post/ folder of the cloned repo.\nNow is the time to adjust the index.qmd name, change it to include ‘main-page’ somewhere in the middle of the file name. The quarto website will look for book title pages in posts/*main-page*.qmd, so if you follow the naming scheme, the website will be able to find it and place it at the correct location on the site.\n\nAs an example, I wrote a manual called ‘Illumina metagenomic analysis manual’ and it’s made up of the following qmd files (which I’ve placed in the posts/ folder):\n\nIMAM-01-main-page-index.qmd\nIMAM-02-preparation.qmd\nIMAM-03-quality_control.qmd\nIMAM-04-assembly.qmd\nIMAM-05-annotation.qmd\nIMAM-06-parse_annotation.qmd\nIMAM-07-illumina_hpc.qmd\n\n‘IMAM’ is an abbreviaton for the title of the manual ‘(I)llumina (M)etagenomic (A)nalysis (M)anual’ and I use it as a short unique identifier. The numbers indicate the chapter number. Importantly, the first chapter (IMAM-01-main-page-index.qmd) is seen as the title page for the manual because it contains ‘main-page’ in the middle of the name.\nNow go edit the _quarto.yml and add a unique id tag and a title for your manual.\nExample on how I added the IMAM book to the website:\n  sidebar: # Define a list of sidebar configurations\n    - id: id-blogs\n      title: \"Blog Posts\"\n      style: \"docked\"\n      contents:\n        - auto: posts/*main-page*.qmd\n\n    - id: id-imam\n      title: \"Illumina metagenomic analysis manual\"\n      style: \"docked\"\n      contents:\n        - auto: posts/IMAM*.qmd\nI created an id ‘id-imam’ and its contents are all of the book’s pages, because it looks for IMAM{wildcard}.qmd.\nThen, you need to edit your main-page index file\n---\ntitle: \"TITLE OF YOUR MANUAL\"\nauthor: \"AUTHOR\"\ndate: 2025-01-01\nReading Time: 15 min\nsidebar: id-imam\n---\nFill in the information that’s accurate for your manual. The most important thing here is that the sidebar id matches with the id that you placed in the _quarto.yml\nThen you can quarto render the EMC-viroscience website and check if the made changes are working. If everything looks fine, then commit the changes and push to the github."
   },
   {
     "objectID": "contribute/01_github.html",
     "href": "contribute/01_github.html",
-    "title": "Contribute to the EMC Viroscience github",
+    "title": "title of your repository",
     "section": "",
     "text": "The EMC Viroscience repo is for employees . . .\n\n\n\n…\n\n\n\nTest version on personal account and a production version on the EMC Viroscience repo."
   },
   {
     "objectID": "contribute/01_github.html#emc-viroscience-repo",
     "href": "contribute/01_github.html#emc-viroscience-repo",
-    "title": "Contribute to the EMC Viroscience github",
+    "title": "title of your repository",
     "section": "",
     "text": "The EMC Viroscience repo is for employees . . .\n\n\n\n…\n\n\n\nTest version on personal account and a production version on the EMC Viroscience repo."
+  },
+  {
+    "objectID": "contribute/01_github.html#quarto",
+    "href": "contribute/01_github.html#quarto",
+    "title": "title of your repository",
+    "section": "Quarto",
+    "text": "Quarto\nThis Quarto website is hosted with GitHub Pages. Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "contribute/01_github.html#adding-your-repo-to-the-frontpage",
+    "href": "contribute/01_github.html#adding-your-repo-to-the-frontpage",
+    "title": "title of your repository",
+    "section": "Adding your repo to the frontpage",
+    "text": "Adding your repo to the frontpage\nThe frontpage of this website shows an overview of the repositories on the EMC Viroscience GitHub account. If your repository to be visible on this frontpage then you need to: 1. Fork your repo to the EMC Viroscience GitHub 2. Open the .Rproj file from EMC-Viroscience.github.io repo in RStudio. Create a Quarto document in the repos/ folder. 3. Edit the\nThe image format can be jpeg,jpg,png.. no webp though.\nThe ‘Tools’ section is fake\nFor any further questions, please contact l.vanzon@erasmusmc.nl"
   },
   {
     "objectID": "index.html",
@@ -232,7 +204,7 @@
     "href": "posts/IMAM-02-preparation.html",
     "title": "1. Preparation",
     "section": "",
-    "text": "Important!\n\n\n\nIn the following sections whenever a “parameter” in brackets {} is shown, the intention is to fill in your own filename or value. Each parameter will be explained in the section in detail.\n\n\n\n\n\n\n\n\nTip\n\n\n\nNotice the small “Copy to Clipboard” button on the right hand side of each code chunk, this can be used to copy the code.\n\n\n\n\nThis workflow is distributed as a self-contained Singularity container image, which includes all necessary software dependencies and helper scripts. This simplifies setup considerably. It is required that Singularity version 3.x or later is available on your system. If you are working with a high performance computing (HPC) system, then this will likely already be installed and available for use. Try writing singularity --help in your terminal (that’s connected to the HPC system) and see if the command is recognized.\n\n\nThe singularity container needs an image file to activate the precompiled work environment. You can download the required workflow image file (imam_workflow.sif) directly through the terminal via:\nwget https://github.com/LucvZon/illumina-metagenomic-analysis-manual/releases/download/v1.0.0/imam_workflow.sif\nOr go to the github page and manually download it there, then transfer it to your HPC system.\n\n\n\nYou can test basic execution:\nsingularity --version\nsingularity exec imam_workflow.sif echo \"Container is accessible!\"\nTo check more in depth, you can start an interactive shell inside the build container and run some checks. singularity shell imam_workflow.sif will drop you into a shell running inside the container. The conda environment needed for this workflow is automatically active on start-up of the interactive shell. All the tools of the conda environment will therefore be ready to use.\nPlease note that you do not have to run conda activate {environment} to activate the environment – everything is inside imam_workflow.sif. If you’re curious about the conda environment we’re using, you can check it out here\nsingularity shell imam_workflow.sif # Start interactive shell\nfastp --help # Check one of the tools from the conda environment\nwhich python # Check python version of the conda environment\n\n\n\n\n\n\nNote\n\n\n\nWe are now ready to start executing the code to perform quality control of our raw Illumina sequencing data in the next chapter.",
+    "text": "Important!\n\n\n\nIn the following sections whenever a “parameter” in brackets {} is shown, the intention is to fill in your own filename or value. Each parameter will be explained in the section in detail.\n\n\n\n\n\n\n\n\nTip\n\n\n\nNotice the small “Copy to Clipboard” button on the right hand side of each code chunk, this can be used to copy the code.\n\n\n\n\nThis workflow is distributed as a self-contained Singularity container image, which includes all necessary software dependencies and helper scripts. This simplifies setup considerably. It is required that Singularity version 3.x or later is available on your system. If you are working with a high performance computing (HPC) system, then this will likely already be installed and available for use. Try writing singularity --help in your terminal (that’s connected to the HPC system) and see if the command is recognized.\n\n\nThe singularity container needs an image file to activate the precompiled work environment. You can download the required workflow image file (imam_workflow.sif) directly through the terminal via:\nwget https://github.com/LucvZon/illumina-metagenomic-analysis-manual/releases/download/v1.0.1/imam_workflow.sif\nOr go to the github page and manually download it there, then transfer it to your HPC system.\n\n\n\nYou can test basic execution:\nsingularity --version\nsingularity exec imam_workflow.sif echo \"Container is accessible!\"\nTo check more in depth, you can start an interactive shell inside the build container and run some checks. singularity shell imam_workflow.sif will drop you into a shell running inside the container. The conda environment needed for this workflow is automatically active on start-up of the interactive shell. All the tools of the conda environment will therefore be ready to use.\nPlease note that you do not have to run conda activate {environment} to activate the environment – everything is inside imam_workflow.sif. If you’re curious about the conda environment we’re using, you can check it out here\nsingularity shell imam_workflow.sif # Start interactive shell\nfastp --help # Check one of the tools from the conda environment\nwhich python # Check python version of the conda environment\n\n\n\n\n\n\nNote\n\n\n\nWe are now ready to start executing the code to perform quality control of our raw Illumina sequencing data in the next chapter.",
     "crumbs": [
       "Posts",
       "1. Preparation"
@@ -243,7 +215,7 @@
     "href": "posts/IMAM-02-preparation.html#singularity-container",
     "title": "1. Preparation",
     "section": "",
-    "text": "This workflow is distributed as a self-contained Singularity container image, which includes all necessary software dependencies and helper scripts. This simplifies setup considerably. It is required that Singularity version 3.x or later is available on your system. If you are working with a high performance computing (HPC) system, then this will likely already be installed and available for use. Try writing singularity --help in your terminal (that’s connected to the HPC system) and see if the command is recognized.\n\n\nThe singularity container needs an image file to activate the precompiled work environment. You can download the required workflow image file (imam_workflow.sif) directly through the terminal via:\nwget https://github.com/LucvZon/illumina-metagenomic-analysis-manual/releases/download/v1.0.0/imam_workflow.sif\nOr go to the github page and manually download it there, then transfer it to your HPC system.\n\n\n\nYou can test basic execution:\nsingularity --version\nsingularity exec imam_workflow.sif echo \"Container is accessible!\"\nTo check more in depth, you can start an interactive shell inside the build container and run some checks. singularity shell imam_workflow.sif will drop you into a shell running inside the container. The conda environment needed for this workflow is automatically active on start-up of the interactive shell. All the tools of the conda environment will therefore be ready to use.\nPlease note that you do not have to run conda activate {environment} to activate the environment – everything is inside imam_workflow.sif. If you’re curious about the conda environment we’re using, you can check it out here\nsingularity shell imam_workflow.sif # Start interactive shell\nfastp --help # Check one of the tools from the conda environment\nwhich python # Check python version of the conda environment\n\n\n\n\n\n\nNote\n\n\n\nWe are now ready to start executing the code to perform quality control of our raw Illumina sequencing data in the next chapter.",
+    "text": "This workflow is distributed as a self-contained Singularity container image, which includes all necessary software dependencies and helper scripts. This simplifies setup considerably. It is required that Singularity version 3.x or later is available on your system. If you are working with a high performance computing (HPC) system, then this will likely already be installed and available for use. Try writing singularity --help in your terminal (that’s connected to the HPC system) and see if the command is recognized.\n\n\nThe singularity container needs an image file to activate the precompiled work environment. You can download the required workflow image file (imam_workflow.sif) directly through the terminal via:\nwget https://github.com/LucvZon/illumina-metagenomic-analysis-manual/releases/download/v1.0.1/imam_workflow.sif\nOr go to the github page and manually download it there, then transfer it to your HPC system.\n\n\n\nYou can test basic execution:\nsingularity --version\nsingularity exec imam_workflow.sif echo \"Container is accessible!\"\nTo check more in depth, you can start an interactive shell inside the build container and run some checks. singularity shell imam_workflow.sif will drop you into a shell running inside the container. The conda environment needed for this workflow is automatically active on start-up of the interactive shell. All the tools of the conda environment will therefore be ready to use.\nPlease note that you do not have to run conda activate {environment} to activate the environment – everything is inside imam_workflow.sif. If you’re curious about the conda environment we’re using, you can check it out here\nsingularity shell imam_workflow.sif # Start interactive shell\nfastp --help # Check one of the tools from the conda environment\nwhich python # Check python version of the conda environment\n\n\n\n\n\n\nNote\n\n\n\nWe are now ready to start executing the code to perform quality control of our raw Illumina sequencing data in the next chapter.",
     "crumbs": [
       "Posts",
       "1. Preparation"
