@@ -26,6 +26,8 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.40
         # No 'with:' block needed for this older action usually
         
       # Comment out subsequent steps for now
