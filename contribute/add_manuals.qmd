@@ -1,0 +1,154 @@
+---
+title: "Contributing Manuals and Multi-Part Content"
+format: html
+---
+
+We welcome contributions of workflow manuals, tool guides, or other multi-part documentation to the EMC Viroscience website! This guide outlines the steps to prepare and submit your content. Our website uses [Quarto](https://quarto.org/), so your contribution should ideally be written using Quarto's features, particularly the Quarto Book format for organization.
+
+## Prerequisites
+
+Before you start, make sure you have the following installed and configured:
+
+1.  **Quarto:** Install the latest version from the [Quarto Get Started page](https://quarto.org/docs/get-started/){target="_blank"}. Quarto allows you to create dynamic content with Python, R, Julia, and Observable.
+2.  **Git:** Git is essential for version control and contributing to the website repository. Download and install it from [https://git-scm.com/downloads](https://git-scm.com/downloads){target="_blank"}. Familiarize yourself with basic Git commands (`clone`, `add`, `commit`, `push`, `pull`, `branch`).
+3.  **IDE (Recommended):** While you can use any text editor, IDEs like [RStudio](https://posit.co/download/rstudio-desktop/){target="_blank"} or [VS Code](https://code.visualstudio.com/){target="_blank"} offer excellent Quarto integration, making writing and previewing easier. This website project itself (`EMC-Viroscience.github.io`) includes an `.Rproj` file for easy opening in RStudio.
+4.  **GitHub Account:** You'll need a free GitHub account to contribute.
+
+## Step 1: Write Your Content (Preferably as a Quarto Book)
+
+The easiest way to structure multi-page content like a manual is using the **Quarto Book** format.
+
+1.  **Create a New Quarto Book Project:** In your chosen IDE (like RStudio: File > New Project > New Directory > Quarto Book) or via the command line (`quarto create project book my-manual-name`), create a new Quarto Book project *on your own computer*. This keeps your manual organized during development.
+2.  **Write Your Chapters:** Create separate `.qmd` files for each chapter or section of your manual within your book project.
+3.  **Organize Chapters (Optional but Recommended):** Use the `_quarto.yml` file *within your book project* to define the chapter order. This helps you structure the content logically while writing, even though we'll adapt this for the main website later.
+
+## Step 2: Prepare Your Files for the Website
+
+This is where we adapt your book content for integration into the main EMC Viroscience website structure.
+
+1.  **Naming Convention:** Adopt a consistent naming scheme for your `.qmd` files *that will be added to the website*. This helps organize the content and enables automatic sidebar generation. The recommended template is:
+
+    `{id}-{number}-main-page-{name}.qmd` (for the *first* chapter/entry page)
+    
+    `{id}-{number}-{name}.qmd` (for *subsequent* chapters)
+
+    *   **`{id}`:** A short, unique identifier for *your entire manual* (e.g., `IMAM`, `MyTool`). **Use the same ID for all files belonging to this manual.**
+    *   **`{number}`:** A two-digit number representing the chapter order (e.g., `01`, `02`, `10`). This ensures correct sorting when listed automatically.
+    *   **`main-page`:** This keyword **must** be included in the filename of your *first* chapter (the entry point). The website uses this (`posts/*main-page*.qmd`) to identify the primary pages to list on the homepage blog roll.
+    *   **`{name}`:** A descriptive name for the chapter (e.g., `index`, `preparation`, `usage`).
+
+    **Example (from the Illumina Metagenomic Analysis Manual):**
+
+    *   `IMAM-01-main-page-index.qmd` (Entry page, identified by `main-page`)
+    *   `IMAM-02-preparation.qmd`
+    *   `IMAM-03-quality_control.qmd`
+    *   ...etc.
+
+2.  **Rename Your Book's `index.qmd`:** Since the website uses a specific pattern for main entry pages, rename your book's original `index.qmd` file according to the naming convention above, making sure it includes `-main-page-`.
+
+## Step 3: Contribute to the Website Repository
+
+We use the standard GitHub Fork & Pull Request workflow for contributions.
+
+1.  **Fork the Repository:** Go to the main website repository: [https://github.com/EMC-Viroscience/EMC-Viroscience.github.io](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io) and click the "Fork" button in the top-right corner. This creates a copy of the repository under your own GitHub account.
+2.  **Clone Your Fork:** Clone the forked repository to your local machine:
+    ```bash
+    git clone https://github.com/YOUR-GITHUB-USERNAME/EMC-Viroscience.github.io.git
+    
+    cd EMC-Viroscience.github.io
+    ```
+3.  **Create a New Branch:** Create a descriptive branch for your changes:
+
+    ```bash
+    git checkout -b add-manual-yourid # e.g., add-manual-imam
+    ```
+
+## Step 4: Integrate Your Files into the Website
+
+Now, add your prepared content and configure the website.
+
+1.  **Copy `.qmd` Files:** Copy all your renamed `.qmd` files (from Step 2) into the `posts/` directory within the cloned website repository.
+2.  **Configure `_quarto.yml`:** Open the `_quarto.yml` file in the root of the website repository. Add a new sidebar definition specific to your manual. Find the `sidebar:` section and add an entry like this:
+
+    ```yaml
+    # _quarto.yml
+
+    # ... (other website config) ...
+
+    sidebar: # Define a list of sidebar configurations
+      - id: id-blogs # Existing sidebar for general posts
+        title: "Blog Posts"
+        style: "docked"
+        contents:
+          - auto: posts/*main-page*.qmd
+
+      - id: id-yourid # Add your new sidebar definition HERE
+        title: "Your Manual Title" # The title displayed above the sidebar
+        style: "docked"
+        contents:
+          - auto: posts/yourid*.qmd # Use your unique ID prefix
+
+    # ... (rest of the config like format:) ...
+    ```
+    *   Replace `id-yourid` with a unique ID for your sidebar (e.g., `id-imam`, `id-mytool`). **This ID must be unique within the file.**
+    *   Replace `"Your Manual Title"` with the full title you want displayed.
+    *   Replace `yourid*.qmd` with the pattern matching your files (using the unique ID you chose, e.g., `IMAM*.qmd`).
+
+3.  **Configure Frontmatter:** Open your *main entry page* `.qmd` file (the one with `-main-page-` in the name, e.g., `IMAM-01-main-page-index.qmd`) located in the `posts/` directory. Add or modify its YAML frontmatter at the top:
+
+    ```yaml
+    ---
+    title: "Full Title of Your Manual"
+    author: "Your Name(s)"
+    date: "YYYY-MM-DD" # Or use "today"
+    # description: "A brief description for the listing page." # Optional
+    # image: "path/to/optional_image.png" # Optional
+    # Add any custom fields like Reading Time if used by the listing
+    sidebar: id-yourid # IMPORTANT: Use the *exact* sidebar ID you defined in _quarto.yml
+    ---
+
+    # Start the content of your first chapter/introduction here...
+    This is the main page for the manual...
+    ```
+    *   Fill in the `title`, `author`, `date`, etc.
+    *   **Crucially**, set the `sidebar:` value to the *exact `id`* you created in `_quarto.yml` (e.g., `sidebar: id-imam`). This tells Quarto to display the specific sidebar containing your manual's chapters when viewing this page and subsequent pages linked from it (if they don't specify their own sidebar).
+    
+## Step 5: Test Locally
+
+Before submitting, preview your changes:
+
+1.  Open a terminal within the website repository directory (`EMC-Viroscience.github.io`).
+2.  Run `quarto render`. Check for any errors.
+3.  Run `quarto preview`. This should open the website in your browser.
+4.  Navigate to the homepage. Does your manual's main page appear correctly in the listing?
+5.  Click on your manual's entry. Does it load the correct page?
+6.  Check the sidebar. Does it show the correct title and list your chapters in the intended order (based on the `01`, `02` numbering)?
+7.  Click through your chapters in the sidebar. Do they navigate correctly?
+
+## Step 6: Submit Your Contribution
+
+Once you're happy with the local preview:
+
+1.  **Stage and Commit:** Add your changes using Git:
+
+    ```bash
+    git add posts/yourid*.qmd # Add your new content files
+    git add _quarto.yml      # Add the modified config file
+    git commit -m "Add manual: Your Manual Title" # Descriptive commit message
+    ```
+2.  **Push to Your Fork:** Push your new branch to your forked repository on GitHub:
+
+    ```bash
+    git push -u origin add-manual-yourid # Push the branch you created
+    ```
+3.  **Create a Pull Request (PR):** Go to your forked repository on the GitHub website. You should see a prompt to "Compare & pull request". Click it.
+    *   Ensure the base repository is `EMC-Viroscience/EMC-Viroscience.github.io` and the base branch is `main` (or the default branch).
+    *   Ensure the head repository is your fork and the compare branch is `add-manual-yourid`.
+    *   Write a clear title and description for your PR, explaining the manual you've added. If it relates to a specific issue, link the issue number.
+    *   Click "Create pull request".
+
+## Next Steps
+
+The maintainers of the EMC Viroscience website will review your pull request. They may ask for changes or clarifications. Once approved, your contribution will be merged, and your manual will appear on the live website!
+
+Thank you for contributing! If you have questions during this process, please feel free to open an issue on the [website repository's issue tracker](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io/issues).

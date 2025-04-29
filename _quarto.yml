@@ -10,10 +10,10 @@ website:
     right:
       - text: "Contribute"
         menu:
-          - text: "About"
-            href: contribute/01_github.qmd
+          # - text: "About"
+          #   href: 
           - text: "Add workflow manuals"
-            href: contribute/02_manuals.qmd
+            href: contribute/add_manuals.qmd
     
     left:
       - text: "Home"
