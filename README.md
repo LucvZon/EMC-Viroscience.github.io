@@ -24,7 +24,7 @@ This repository contains the Quarto source code for the EMC Viroscience website,
 To preview the website locally before contributing:
 
 1.  Ensure you have [Quarto installed](https://quarto.org/docs/get-started/).
-2.  Clone this repository: `git clone https://github.com/EMC-Viroscience/EMC-Viroscience.github.io.git`
+2.  Clone this repository: `git clone https://github.com/LucvZon/EMC-Viroscience.github.io`
 3.  Navigate to the directory: `cd EMC-Viroscience.github.io`
 4.  Run: `quarto preview`
 5.  This will render the site locally and open it in your default web browser.
