@@ -149,6 +149,6 @@ Once you're happy with the local preview:
 
 ## Next Steps
 
-The maintainers of the EMC Viroscience website will review your pull request. They may ask for changes or clarifications. Once approved, your contribution will be merged, and your manual will appear on the live website!
+The maintainers of the EMC Viroscience website will review your pull request. They may ask for changes or clarifications. Once approved and merged, an automated process will render the site and deploy the changes.
 
 Thank you for contributing! If you have questions during this process, please feel free to open an issue on the [website repository's issue tracker](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io/issues).
