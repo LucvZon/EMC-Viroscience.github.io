@@ -1,48 +1,46 @@
 # .github/workflows/deploy.yml
 
-name: Deploy Quarto Website (Debug)
+name: Deploy Quarto Website
 
 on:
   push:
-    branches: [main] 
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read 
-  pages: write    
-  id-token: write 
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  debug-quarto-setup:
-    runs-on: ubuntu-latest 
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.6.40
-        # No 'with:' block needed for this older action usually
-        
-      # Comment out subsequent steps for now
-      # - name: Render Quarto Website
-      #   run: quarto render 
+          version: 1.6.40 # Keep this specific version
 
-      # - name: Setup Pages
-      #   id: pages 
-      #   uses: actions/configure-pages@v5 
+      - name: Render Quarto Website
+        run: quarto render
 
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v3 
-      #   with:
-      #     path: ./docs 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v4 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
