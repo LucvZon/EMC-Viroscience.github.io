@@ -44,6 +44,12 @@ website:
       style: "docked"
       contents:
         - auto: posts/IMAM*.qmd
+        
+    - id: id-naam
+      title: "Nanopore amplicon analysis manual"
+      style: "docked"
+      contents:
+        - auto: posts/NAAM*.qmd
           
 format:
   html:
