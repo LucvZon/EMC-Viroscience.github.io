@@ -29,7 +29,7 @@ Or go to the [github page](https://github.com/LucvZon/illumina-metagenomic-analy
 You can test basic execution:
 
 ``` bash
-singularity --version
+singularity run imam_workflow.sif --version
 singularity exec imam_workflow.sif echo "Container is accessible!"
 ```
 
