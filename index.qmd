@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the EMC Viroscience site!"
+title: "Welcome to the EMC-Viroscience landing page!"
 listing:
   - id: direct-links
     contents:
