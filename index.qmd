@@ -4,7 +4,8 @@ description: "EMC"
 css: styling/styles.css
 listing:
   - id: direct-links
-    contents: _generated_repos/*.qmd
+    contents:
+      - repo-listing.yml
     type: grid
     fields: [title, description]
   # - id: special-repos
