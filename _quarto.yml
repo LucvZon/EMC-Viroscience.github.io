@@ -9,7 +9,7 @@ website:
   favicon: images/emc_favicon.png
   
   page-footer: 
-    center: "[CC0 1.0 License](LICENSE.md)"
+    center: "[CC0 1.0 License](/LICENSE.md)"
   
   navbar:
     right:
