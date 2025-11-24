@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  pre-render: generate_repo_Files.py
+  pre-render: generate_repo_files.py
 
 website:
   title: ""
