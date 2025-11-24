@@ -1,10 +1,15 @@
 project:
   type: website
   output-dir: docs
+  pre-render: generate_repo_Files.py
 
 website:
-  title: "EMC Viroscience"
+  title: ""
   page-navigation: true
+  favicon: images/emc_favicon.png
+  
+  page-footer: 
+    center: "[CC-BY 4.0 License](LICENSE.md)"
   
   navbar:
     right:
@@ -20,7 +25,6 @@ website:
         href: index.qmd
       - text: "Workflows"
         href: workflows.qmd
-      - text: "Tools"
       - icon: github
         menu:
           - text: Source code
@@ -33,18 +37,12 @@ website:
             url: https://github.com/LucvZon/EMC-Viroscience.github.io/issues/new?assignees=&labels=enhancement&projects=&template=feature-request.yml&title=feat
       
   sidebar: # Define a list of sidebar configurations
-    - id: id-blogs
-      title: "Blog Posts"
-      style: "docked"
-      contents:
-        - auto: posts/*main-page*.qmd
-
     - id: id-imam
       title: "Illumina metagenomic analysis manual"
       style: "docked"
       contents:
         - auto: posts/IMAM*.qmd
-        
+
     - id: id-naam
       title: "Nanopore amplicon analysis manual"
       style: "docked"
@@ -53,6 +51,7 @@ website:
           
 format:
   html:
+    css: styling/custom.css
     include-after-body:
       - text: |
           <script src="styling/custom.js"></script>
@@ -60,4 +59,4 @@ format:
     number-sections: false
     theme:
       dark: darkly
-      light: jekyll-theme-minimal
+      light: flatly
