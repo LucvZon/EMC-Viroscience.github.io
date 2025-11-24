@@ -1,43 +1,85 @@
 ---
-title: "Welcome to the EMC-Viroscience landing page!"
+title: "VIROSCIENCE"
+description: "EMC"
+css: styling/styles.css
 listing:
   - id: direct-links
     contents:
       - path: https://github.com/EMC-Viroscience/updated_illumina_workflow
-        title: "updated_illumina_workflow"
-        image: "repos/penguins.png"
+        title: "updated_illumina_workflow 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/USUV_submission
-        title: "USUV_submission"
-        image: "repos/penguins.png"
+        title: "USUV_submission 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/SARS-CoV-2_submission
-        title: "SARS-CoV-2_submission"
-        image: "repos/penguins.png"
+        title: "SARS-CoV-2_submission 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/ENA-submission
-        title: "ENA-submission"
-        image: "repos/penguins.png"
+        title: "ENA-submission 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/tsv2xmlParser
-        title: "tsv2xmlParser"
-        image: "repos/penguins.png"
+        title: "tsv2xmlParser 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/BOM86/Genomic-monitoring-mpox-in-Burundi
-        title: "Genomic-monitoring-mpox-in-Burundi"
-        image: "repos/penguins.png"
+        title: "Genomic-monitoring-mpox-in-Burundi 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/Worp_etal_Global_Sewage_Virome
-        title: "Worp_etal_Global_Sewage_Virome"
-        image: "repos/penguins.png"
+        title: "Worp_etal_Global_Sewage_Virome 🔗"
+        # image: "repos/penguins.png"
       - path: https://github.com/EMC-Viroscience/Rashidi_et_al-2024-COVID19-brain-apoptosis
-        title: "Rashidi_et_al-2024-COVID19-brain-apoptosis"
-        image: "repos/penguins.png"
+        title: "Rashidi_et_al-2024-COVID19-brain-apoptosis 🔗"
+        # image: "repos/penguins.png"
     type: grid
-    fields: [image, title, description]
+    fields: [title, description]
   # - id: special-repos
   #   contents: repos/*.qmd
   #   type: grid
-sidebar: id-blogs
+# sidebar: id-blogs
+page-layout: full
+
+title-block-banner: "#00000000"
+include-in-header:
+  - text: |
+      <style>
+      #title-block-header.quarto-title-block.default .quarto-title-meta {
+        color: #000000;
+      }
+      /*
+      .quarto-title-block .quarto-title-banner {
+        height: 0;
+      }
+      */
+      #title-block-header {
+        position: relative;
+        height: 300px;
+      }
+      #title-block-header::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url(/images/emc_banner.jpg);
+          background-size: cover;
+          background-position-y: center;
+          opacity: 0.5; /* Adjust as needed */
+      }
+      #title-block-header::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.4); 
+      }
+      </style>
 ---
 
 This is the landing page for the [EMC Viroscience GitHub](https://github.com/EMC-Viroscience){target="_blank"}.
 
-## Direct links {.unnumbered .unlisted}
+## Direct repository links {.unnumbered .unlisted}
 
 :::{#direct-links}
 ::: 
