@@ -50,7 +50,7 @@ This is where we adapt your book content for integration into the main EMC Viros
 
 We use the standard GitHub Fork & Pull Request workflow for contributions.
 
-1.  **Fork the Repository:** Go to the main website repository: [https://github.com/LucvZon/EMC-Viroscience.github.io](https://github.com/LucvZon/EMC-Viroscience.github.io) and click the "Fork" button in the top-right corner. This creates a copy of the repository under your own GitHub account.
+1.  **Fork the Repository:** Go to the main website repository: [https://github.com/EMC-Viroscience/EMC-Viroscience.github.io](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io) and click the "Fork" button in the top-right corner. This creates a copy of the repository under your own GitHub account.
 2.  **Clone Your Fork:** Clone the forked repository to your local machine:
     ```bash
     git clone https://github.com/YOUR-GITHUB-USERNAME/EMC-Viroscience.github.io.git
@@ -151,4 +151,4 @@ Once you're happy with the local preview:
 
 The maintainers of the EMC Viroscience website will review your pull request. They may ask for changes or clarifications. Once approved and merged, an automated process will render the site and deploy the changes.
 
-Thank you for contributing! If you have questions during this process, please feel free to open an issue on the [website repository's issue tracker](https://github.com/LucvZon/EMC-Viroscience.github.io/issues).
+Thank you for contributing! If you have questions during this process, please feel free to open an issue on the [website repository's issue tracker](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io/issues).

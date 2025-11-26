@@ -1,8 +1,8 @@
 # EMC Viroscience Website
 
-This repository contains the Quarto source code for the EMC Viroscience website, hosted at [https://lucvzon.github.io/EMC-Viroscience.github.io/](https://lucvzon.github.io/EMC-Viroscience.github.io/). The site serves as a central hub for bioinformatics workflow manuals, tool documentation, blog posts, and relevant links for the group.
+This repository contains the Quarto source code for the EMC Viroscience website, hosted at [https://EMC-Viroscience.github.io/](https://EMC-Viroscience.github.io/). The site serves as a central hub for bioinformatics workflow manuals, tool documentation, blog posts, and relevant links for the group.
 
-[![Deploy Quarto Website](https://github.com/LucvZon/EMC-Viroscience.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/LucvZon/EMC-Viroscience.github.io/actions/workflows/deploy.yml)
+[![Deploy Quarto Website](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/EMC-Viroscience/EMC-Viroscience.github.io/actions/workflows/deploy.yml)
 
 ## Technology
 
@@ -24,7 +24,7 @@ This repository contains the Quarto source code for the EMC Viroscience website,
 To preview the website locally before contributing:
 
 1.  Ensure you have [Quarto installed](https://quarto.org/docs/get-started/).
-2.  Clone this repository: `git clone https://github.com/LucvZon/EMC-Viroscience.github.io`
+2.  Clone this repository: `git clone https://github.com/EMC-Viroscience/EMC-Viroscience.github.io`
 3.  Navigate to the directory: `cd EMC-Viroscience.github.io`
 4.  Run: `quarto preview`
 5.  This will render the site locally and open it in your default web browser.
@@ -34,7 +34,7 @@ To preview the website locally before contributing:
 
 We welcome contributions! Please see the detailed guide on the website:
 
-*   **[How to Contribute Manuals and Content](https://lucvzon.github.io/EMC-Viroscience.github.io/contribute/add_manuals.html)**
+*   **[How to Contribute Manuals and Content](https://EMC-Viroscience.github.io/contribute/add_manuals.html)**
 
 In summary, the process involves:
 1.  Forking the repository.
